@@ -1,0 +1,241 @@
+/* pages/youhui/youhui.wxss */
+
+page {
+  height: 100%;
+  /* background: #E8E8E8 */
+}
+
+.swiper-tab {
+  width: 100%;
+  /* border-bottom: 2rpx solid #ccc; */
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.swiper-tab-item {
+  width: 50%;
+  color: #434343;
+}
+
+.active {
+  color: #ee3334;
+  border-bottom: 4rpx solid #ee3334;
+}
+
+swiper {
+  /* width: 94%;
+  margin: 0 auto; */
+  width: 100%;
+  height: 100%;
+  /* padding: 0 3%; */
+}
+
+/* 优惠券样式 */
+
+swiper-item {
+  margin-top: 50rpx;
+}
+
+.yhq {
+  width: 70%;
+  padding: 20rpx 7%;
+  height: 200rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background: url('http://img.mrttg.com/IMG_583_200@1c772ab0-f615-4b4b-8dfe-92b9ad8c7c5aFlbyfciOMwTw1d9sligQ2SQla-EC.png');
+  background-size: 100% 100%;
+  align-items: center;
+  margin-bottom: 40rpx;
+}
+
+.yLeft {
+  width: 10rpx;
+  font-size: 32rpx;
+  color: white;
+}
+
+.yRight {
+  background: white;
+  border-radius: 20rpx;
+  display: flex;
+  font-size: 24rpx;
+  color: #ee3334;
+  padding: 30rpx 20rpx;
+  justify-content: space-between;
+  margin-right: 45rpx;
+}
+
+.yRight .price {
+  font-size: 92rpx;
+  color: #ee3334;
+}
+
+.keyong {
+  background: #ee3334;
+  color: white;
+  padding: 10rpx 15rpx;
+  border-radius: 30rpx;
+  margin-left: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.explan text {
+  margin-left: 20rpx;
+}
+
+/* 增加的优惠券样式 */
+
+.coupon-content {
+  /* padding: 20rpx 35rpx; */
+  padding: 0 35rpx;
+  /* margin-top: 90rpx; */
+  min-height: 100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.coupon-content .coupon {
+  height: 200rpx;
+}
+
+.coupon-content .usable-list {
+  background: url('http://img.hnxn888.com/o_1cmffe0uf1kd11c3o1192hfs1b4ms.png');
+  background-size: 100% 100%;
+  margin-top: 20rpx;
+  display: flex;
+}
+.coupon-content .usable-list.gray{
+  background: url('http://img.mrttg.com/IMG_680_199@2cd737ea-8ce3-4838-ac84-5321621ebee7Fia8VSDK-3KQ3q-US_bTnCCth2JJ.png');
+  background-size: 100% 100%;
+}
+
+.coupon-content .fail-list {
+  background: url('http://img.aitekeji.net/coupon.png');
+  background-size: 100% 100%;
+  border: 1rpx solid #d3d6d9;
+  margin-top: 20rpx;
+  display: flex;
+  color: #fff;
+  z-index: 100;
+}
+
+.usable-list .money {
+  width: 200rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.usable-list .money .listMoney {
+  width: 200rpx;
+  font-size: 50rpx;
+}
+
+.usable-list .couponMsg {
+  flex-grow: 7;
+  width: 460rpx;
+  height: 100%;
+  padding-left: 50rpx;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.usable-list .couponMsg .name {
+  font-size: 40rpx;
+  color: #ee3334;
+}
+.usable-list.gray .couponMsg .name {
+  color: #AEAEAE;
+}
+
+.usable-list .couponMsg .time {
+  font-size: 26rpx;
+  color: #a0a0a0;
+}
+
+.fail-list .money {
+  width: 200rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  flex-grow: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.fail-list .money .listMoney {
+  width: 200rpx;
+  font-size: 60rpx;
+}
+
+.fail-list .couponMsg {
+  flex-grow: 7;
+  width: 460rpx;
+  height: 100%;
+  padding-left: 50rpx;
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.fail-list .couponMsg .name {
+  font-size: 32rpx;
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.fail-list .couponMsg .time {
+  font-size: 22rpx;
+  color: #a0a0a0;
+}
+
+.couponMsg  .status {
+  font-size: 22rpx;
+  color: #a0a0a0;
+}
+
+.couponMsg .staus1 {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 26rpx;
+  color: #a0a0a0;
+  padding: 5rpx 10rpx;
+  border: 1px solid #a0a0a0;
+  transform: rotate(-9deg);
+}
+
+/* 优惠卷为空 */
+.list_none {
+  position: fixed;
+  top: 40vh;
+  left: 0;
+  width: 100%;
+  padding: 40rpx 0;
+  color: #999;
+  text-align: center;
+}
+
+.iNfo {
+  color: #999;
+  text-align: center;
+  marker-start: 40rpx;
+  margin-top: 70rpx;
+  font-size: 32rpx;
+}

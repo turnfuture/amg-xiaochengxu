@@ -1,0 +1,48 @@
+<!--pages/shopCar/shopCar.wxml-->
+<wxs src='../../utils/money.wxs' module="numberUtil" />
+
+<scroll-view  wx:if="{{list.length>0}}">
+  <view class="edit selectEit">
+    <icon type='success' wx:if="{{selectAllStatus}}" color='#D50000' class="total-select" bindtap="selectAll"></icon>
+    <icon type='circle' wx:else class="total-select" bindtap="selectAll"></icon>
+    <text class="sel_count_name">全选</text>
+    <label class='edit_btn' wx:if="{{show_edit}}" bindtap='btn_edit'>编辑</label>
+    <label class='edit_btn' wx:else bindtap='btn_edit'>取消</label>
+  </view>
+  <!-- 内容 -->
+  <view class="cartList">
+    <view class="list" wx:for="{{list}}" wx:key="{{index}}">
+      <!-- <icon bindtap="selectList" class="radio_chek" data-index="0" type="circle" role="img"></icon> -->
+      <icon type='success' wx:if="{{item.selected}}" data-index="{{index}}" class="radio_chek" color='#D50000' bindtap="selectList"></icon>
+      <icon type='circle' wx:else class="radio_chek" data-index="{{index}}" bindtap="selectList"></icon>
+      <view class="goods">
+        <image class="list_img" src="{{item.imgurl}}" data-id='{{item.goods_id}}' bindtap='good'></image>
+        <view class='goodsMsg' data-id='{{item.goods_id}}' bindtap='good'>
+          <view class="list_name">{{item.name}}</view>
+          <view class="cart_g_name">{{item.spec}}</view>
+          <text class="list_price">￥{{numberUtil.numberFormat(item.price)}}</text>
+          <view class="carts-num">
+            
+            <view class="minus" catchtap="btn_minus" data-index="{{index}}" data-id='{{item.id}}'>-</view>
+            <view class="view_text_center" data-index="{{index}}">{{item.num}}</view>
+            <view class="plus" catchtap='btn_add' data-index="{{index}}" data-id='{{item.id}}'>+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!-- <view class="cont_bot">
+  <lable class="count_price">合计：
+    <text>￥{{totalPrice}}</text>
+  </lable>
+  <view class='submit' wx:if="{{show_edit}}" bindtap='btn_submit_order'>提交订单</view>
+  <view class='dele_edit' wx:else bindtap='delOrder'>删除</view>
+</view> -->
+<view wx:if="{{list.length==0}}" class="nullCar">
+  <image src="../../images/nullcar.png"></image>
+  <text>购物车空空荡荡</text>
+</view>
+<view style="height:30rpx;"></view>
+<tab-bar selected="2" totalPrice="{{totalPrice}}" show_edit="{{show_edit}}" bindsub="btn_submit_order" binddelete="delOrder"></tab-bar>
+<view class="newTab"></view>

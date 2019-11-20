@@ -1,0 +1,18 @@
+<!--pages/mineTeam/mineTeam.wxml-->
+<view class="team_list" style="height:{{topHeight}}px;">
+  <scroll-view scroll-y bindscrolltolower="lower">
+    <block wx:if="{{teamList.length>0}}" wx:for="{{teamList}}" wx:key="{{index}}">
+    <view class="team_item">
+      <image class="img" mode="aspectFill" src="{{item.avator}}"></image>
+      <view class="team_left">
+        <view class="name">{{item.name}}</view>
+        <view class="name type">{{item.identity==1?'一级粉丝':'二级粉丝'}}</view>
+        <view class="time">{{item.create_at}}</view>
+        
+      </view>
+    </view>
+  </block>
+  <view class="empty_div" wx:if="{{teamList.length==0}}">暂无数据</view>
+  </scroll-view>
+</view>
+<view class="team_bottom">总人数：{{totalNum}}</view>

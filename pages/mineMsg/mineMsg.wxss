@@ -1,0 +1,29 @@
+/* pages/mineMsg/mineMsg.wxss */
+
+.msg_item {
+  border-bottom: 2rpx solid #eaeaea;
+  padding:30rpx 20rpx;
+  display: flex;
+  overflow: hidden;
+}
+
+.msg_item text {
+  font-size: 32rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.msg_item .icon-jiantou {
+  color: #a0a0a0;
+  font-size: 40rpx;
+}
+
+.empty_div {
+  line-height: 400rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+}

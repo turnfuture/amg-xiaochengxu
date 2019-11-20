@@ -1,0 +1,203 @@
+/* pages/myOrder/myOrder.wxss */
+
+page {
+  height: 100%;
+  /* background: #E8E8E8 */
+}
+
+.swiper-tab {
+  width: 100%;
+  /* border-bottom: 2rpx solid #ccc; */
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.swiper-tab-item {
+  width: 50%;
+  color: #434343;
+}
+
+.active {
+  font-size: 32rpx;
+  border-bottom: 4rpx solid #970407;
+  /* font-weight: 500; */
+}
+
+swiper {
+
+  width: 100%;
+  height: 100%;
+
+}
+
+.address {
+  width: 94%;
+  margin: 0 auto;
+  color: #313131;
+}
+
+.perSon {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #ededed;
+  padding: 20rpx;
+}
+
+.perSon text:last-child {
+  color: #d50000;
+  font-size: 28rpx;
+}
+
+/* 今日主推 */
+
+.content {
+  display: flex;
+  font-size: 26rpx;
+  padding: 15rpx 29rpx;
+  border-bottom: 1rpx solid #eee;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content image {
+  width: 200rpx;
+  height:200rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+  /* height: 270px; */
+}
+
+.content  text {
+  display: inline-block;
+  text-align: justify;
+}
+
+.content>view {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.goodSname {
+  color: #1b1b1b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.content .price {
+  font-size: 24rpx;
+  color: #434343;
+  position: relative;
+}
+
+
+.stock {
+  margin: 10rpx 0;
+  font-size: 20rpx;
+  color: #e31537;
+}
+
+.stock1 {
+  font-size: 28rpx;
+  color: #e31537;
+  font-weight: bold;
+}
+
+.shopTotal {
+  font-size: 24rpx;
+  color: #e31537;
+  text-align: right;
+  height: 80rpx;
+  line-height: 80rpx;
+
+  padding-right: 39rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.shopNum, .shopPrice {
+  font-size: 26rpx;
+}
+.shopPrice {
+  font-size: 30rpx;
+}
+
+.shopNum {
+  color: #313131;
+}
+
+.goShop {
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  color: #434343;
+  font-size: 24rpx;
+  border-radius: 15rpx;
+}
+
+scroll-view {
+  height: 100%;
+}
+
+/* 按钮 */
+
+.orderBtn {
+  text-align: right;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+}
+
+.orderBtn text {
+  color: #d50000;
+  display: inline-block;
+  border: 1rpx solid #d50000;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  width: 160rpx;
+  text-align: center;
+  padding: 15rpx 0;
+  margin-right: 25rpx;
+}
+
+.orderBtn view {
+  color: #d50000;
+  display: inline-block;
+  border: 1rpx solid #d50000;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  width: 160rpx;
+  text-align: center;
+  padding: 15rpx 0;
+  margin-right: 25rpx;
+}
+
+.list_none {
+  position: fixed;
+  top: 40vh;
+  left: 0;
+  width: 100%;
+  padding: 40rpx 0;
+  color: #999;
+  text-align: center;
+}
+.swiper-tab-list{
+  flex: 1;
+  text-align: center;
+}
+
+.on {
+  border-bottom: 2px solid #d50000;
+  color: #d50000;
+}
+.oderbox{
+  border-bottom: 10rpx solid #F4F4F4; 
+}

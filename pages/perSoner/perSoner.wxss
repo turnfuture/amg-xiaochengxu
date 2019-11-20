@@ -1,0 +1,302 @@
+/* pages/perSoner/perSoner.wxss */
+@import "../../font/font.wxss";
+
+.myOrder .order {
+  padding: 20rpx 0 0 0;
+  position: relative;
+  display: flex;
+  /* margin-top: 20rpx; */
+}
+
+.myOrder .order .orderList {
+  flex-grow: 1;
+  width: 0;
+  text-align: center;
+}
+
+.myOrder .orderList .orderTabbar {
+  display: inline-block;
+  position: relative;
+}
+
+.myOrder .orderList .orderNum {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  background: #D32F2F;
+  border-radius: 20rpx;
+  color: #fff;
+  width: 40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  z-index: 100;
+  text-align: center;
+}
+
+.myOrder .orderList image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-bottom: 10rpx;
+}
+
+.myOrder .orderLis .name {
+  display: flex;
+  font-size: 30rpx;
+}
+
+.orderTabbar>view {
+  font-size: 24rpx;
+  color: #000;
+}
+
+/* 头像信息 */
+
+.userInfo {
+  background: #970407;
+  height: 400rpx;
+  width: 100%;
+  padding-top: 60rpx;
+}
+
+.userInfo image {
+  width: 150rpx;
+  display: block;
+  height: 150rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+}
+
+.myOrder>text {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.myOrder {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 20rpx;
+}
+
+.cards {
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  top: 135rpx;
+  background: white;
+  box-shadow: 5rpx 6rpx 8rpx #ccc;
+  border-radius: 20rpx;
+  padding-bottom: 25rpx;
+}
+
+.set {
+  float: right;
+  font-size: 20rpx;
+  text-align: center;
+  margin-right: 25rpx;
+}
+
+.neMes {
+  text-align: center;
+  /* margin-top: 100rpx; */
+  margin-bottom: 25rpx;
+}
+
+.neMes text {
+  font-size: 32rpx;
+  display: block;
+  color: #000;
+}
+
+.neMes view {
+  font-size: 24rpx;
+  color: #7d7d7d;
+}
+
+.moneys {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 30rpx;
+}
+
+.moneyItem {
+  display: flex;
+  flex-direction: column;
+  /* flex-shrink: 0; */
+  
+}
+.moneyItem:first-child,
+.moneyItem:last-child {
+  flex:1;
+}
+.moneyItem:last-child {
+  text-align: right;
+}
+.moneyItem:last-child .money_bottom {
+  text-align: right;
+  margin-top: 0;
+}
+.moneyItem:last-child .num{
+  padding-right: 40rpx;
+}
+.moneyItem:nth-child(2n) .num{
+  padding-right: 20rpx;
+}
+.moneyItem:nth-child(2n) {
+  /* flex-grow: 1; */
+  flex-shrink: 0;
+  overflow: hidden;
+  text-align: center;
+}
+.moneyItem:nth-child(2n) .money_bottom {
+  /* text-align: center; */
+  margin-top: 0;
+}
+
+.moneyItem view {
+  font-size: 42rpx;
+  color: #010101;
+  /* text-align: center; */
+}
+
+.moneyItem text {
+  font-size: 24rpx;
+  color: #7d7d7d;
+}
+.money_bottom{
+  overflow: hidden;
+  margin-top: 12rpx;
+}
+.txt{
+  overflow: hidden;
+  display: inline-block;
+  height: 34rpx;
+}
+.txt_right{
+  overflow: hidden;
+  display: inline-block;
+  height: 34rpx;
+}
+.money_bottom text {
+  /* line-height: 52rpx; */
+  float: left;
+}
+.money_bottom .iconfont {
+  float: left;
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  margin-top: 3rpx;
+}
+
+/* 粉丝 */
+
+.fansTitle {
+  display: flex;
+}
+
+.fansTitle view {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.fansTitle text {
+  font-size: 24rpx;
+  color: #7d7d7d;
+  margin-top: 5rpx;
+}
+
+.fansTitle, .fansContent {
+  width: 90%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 0 auto;
+}
+
+.fansTitle {
+  justify-content: space-between;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-top: 20rpx solid #f4f4f4;
+}
+
+.fansContent {
+  display: flex;
+  /* flex-direction: column; */
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+
+.fansContent>view {
+  flex: 1;
+}
+
+.fansContent>view:first-child {
+  font-size: 42rpx;
+  color: #000;
+  flex: 2;
+  text-align: left;
+}
+
+.fansContent view view {
+  font-size: 32rpx;
+  color: #000;
+}
+
+.fansContent text {
+  font-size: 24rpx;
+  color: #7d7d7d;
+}
+
+.fansContent>view:last-child {
+  border-left: 1rpx solid #d2d2d2;
+}
+
+/* 列表 */
+
+.pluginList {
+  margin-top: 20rpx;
+  /* margin-bottom: 240rpx; */
+  border-top: 20rpx solid #f4f4f4;
+}
+
+.pluginList .groupItem {
+  height: 80rpx;
+  padding: 10rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 28rpx;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 60rpx;
+}
+
+.pluginList .groupItem .name {
+  display: flex;
+  align-items: center;
+}
+.pluginList .groupItem .name text {
+  font-size: 30rpx;
+}
+
+.pluginList .groupItem .name image {
+  margin-right: 20rpx;
+  width: 40rpx;
+  /* height: 45rpx; */
+}
+.orderList .service{
+  font-size: 24rpx;
+  background: #fff;
+  padding-left:0;
+  padding-right: 0; 
+  line-height: 34rpx;
+  color: #000;
+}
+.orderList .service::after {
+  border: none
+}

@@ -1,0 +1,77 @@
+/* pages/set/set.wxss */
+@import "../../font/font.wxss";
+
+.groupItem {
+  height: 80rpx;
+  padding: 10rpx 30rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 28rpx;
+  position: relative;
+  box-sizing: border-box;
+  line-height: 60rpx;
+}
+
+/* 头像设置
+ */
+
+.head {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto 20rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.head image {
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-bottom: 20rpx;
+}
+
+.groupItem input {
+  flex: 5;
+}
+
+.wechatNum {
+  flex: 1;
+}
+
+.tuijian {
+  display: flex;
+  justify-content: space-between;
+  padding: 10rpx 30rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #f2f2f2;
+  line-height: 60rpx;
+}
+.tuijian {
+  display: flex;
+  padding: 10rpx 30rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid #f2f2f2;
+  line-height: 60rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+.tuijian .txt{
+  flex-shrink: 0;
+}
+.tuijian .value{
+  flex-grow: 1;
+  text-align: right;
+}
+.tuijian .iconfont{
+  flex-shrink: 0;
+  margin-left: 20rpx;
+  color: #7D7D7D;
+}
+
+button[type=warn] {
+  width: 80%;
+  margin-top: 200rpx;
+}

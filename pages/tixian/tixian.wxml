@@ -1,0 +1,20 @@
+<!--pages/tixian/tixian.wxml-->
+  <view class="item" wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="itemLeft">
+      <view>
+        <text>提现金额：{{item.money}}</text>
+        <text>提现时间：{{item.createAt}}</text>
+      </view>
+    </view>
+    <view class=" itemRight " wx:if="{{item.status==0}}" class="txNow">
+      提现中
+
+    </view>
+    <view class=" itemRight " wx:if="{{item.status==1}}" class="txAgree">
+      同意提现
+    </view>
+    <view class=" itemRight " wx:if="{{item.status==2}}" class="txRefuse">
+      拒绝提现
+    </view>
+  </view>
+<view wx:if="{{list.length==0}}" class="empty_div">暂无数据</view>

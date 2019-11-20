@@ -1,0 +1,254 @@
+<!-- <view class="top_div">
+  <view class="boxs">
+  <view>
+    首页
+  </view>
+  <view class="diyTab" bindtap="toSearch">
+    <icon class="iconfont icon-search"></icon>
+    <text>搜索</text>
+  </view>
+</view>
+</view> -->
+<swiper indicator-dots="false" autoplay="false" interval="5000" duration="1000" class="banner" style='height:{{Hei}}'>
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item  data-type="{{item.mode}}" data-id="{{item.goodsId}}" bindtap="bannerToDetail">
+      <image src="{{item.imgUrl}}" class="slide-image" mode="aspectFill"/>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 分类 -->
+<view class='item'>
+  <view bindtap="toSpike">
+    <image src='../../images/miaosha.png'></image>
+    <text class="txt">
+         秒杀
+     </text>
+  </view>
+  <!-- <view bindtap="kanjjia">
+    <image src='../../images/kanjia.png'></image>
+    <text class="txt">
+         砍价
+     </text>
+  </view> -->
+  <!-- <view bindtap="toIntegList">
+    <image src='../../images/home_integ.png'></image>
+    <text class="txt">
+         积分商城
+     </text>
+  </view> -->
+  <view bindtap="toCate">
+    <image src='../../images/hwzg.png'></image>
+    <text class="txt">
+         海外直购
+     </text>
+  </view>
+  <view bindtap="nineList">
+    <image src='../../images/baoyou.png'></image>
+    <text class="txt">
+         9块9包邮
+     </text>
+  </view>
+  <!-- <view bindtap="fenhong">
+    <image src='../../images/fenhong.png'></image>
+    <text class="txt">
+         平台分红
+     </text>
+  </view> -->
+  <view bindtap="toNewList">
+    <image src='../../images/xrzx.png'></image>
+    <text class="txt">
+         新人专享
+     </text>
+  </view>
+</view>
+<!-- 广告位 -->
+<view class='Advertisement' wx:for="{{guangao}}" wx:key="{{index}}" wx:for-item="item">
+  <!-- <image src='{{item.imgUrl}}' mode='widthFix' data-type="{{item.mode}}" data-id="{{item.goodsId}}" bindtap="bannerToDetail"></image> -->
+  <image src='{{item.imgUrl}}' mode='widthFix' data-type="{{item.mode}}" data-id="{{item.goodsId}}" bindtap="toManager"></image>
+</view>
+<!-- 福利专区 -->
+<view class='activity'>
+  <view class='title'>
+    <image src='../../images/fuli.png'></image>
+    <text class='line'>Welfare Zone  </text>
+    <view class='more' bindtap="toSpike">
+      <text>更多</text>
+      <icon class='iconfont icon-jiantou'></icon>
+    </view>
+  </view>
+  <scroll-view scroll-x='ture' class="gundong" scroll-into-view="{{'time'+timeCur}}">
+    <block wx:for='{{getTime}}' wx:key="{{index}}">
+      <view class="before {{timeCur==index?'active':''}}" data-timeid="{{item.timeId}}" data-ans="{{aNs}}" data-index="{{index}}" id="{{'time'+index}}" bindtap="miaosha">
+        <text class="">{{item.startTime}}-{{item.endTime}}</text>
+        <view class="txt">{{item.ans}}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 商品 -->
+  <view class='actGoods'>
+    <scroll-view scroll-x  wx:if="{{goodsTime.length>0}}">
+      <view class='goodsList goodSpike' wx:for="{{goodsTime}}" wx:key="{{index}}" bindtap="msxq" data-id="{{item.id}}">
+        <view class="img">
+          <image src='{{item.imgurl}}' mode="aspectFill"></image>
+        </view>
+        <text class="name">{{item.name}}</text>
+        <!-- 进度条 -->
+        <view class='strip'>
+          <progress percent='{{item.endvalPro}}' backgroundColor="F8D1D2" activeColor="#DD191D" border-radius='80rpx' font-size="24rpx" active='true' active-mode='backwards' />
+        </view>
+        <view class='price'>
+          <text>￥</text>
+          <text class='reality'>{{item.newPrice}}</text>
+          <text class='Original'>￥{{item.oldPrice}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    <view wx:if="{{goodsTime.length==0}}" class="empty_div" style="width:100%;">该时间段下暂无商品</view>
+  </view>
+</view>
+
+<!-- 9.9块专区 -->
+<view class='activity jiu' style="{{fail==true?'display:none':'display:block'}}">
+  <view class='title' bindtap="nineList" data-id="{{item.id}}">
+    <image src='../../images/9.9.png'></image>
+    <text class='line'>Package Mail</text>
+    <view class='more'>
+      <text>更多</text>
+      <icon class='iconfont icon-jiantou'></icon>
+    </view>
+  </view>
+  <view wx:if="{{img_url}}" class="banner" data-type="{{img_url.mode}}" data-id="{{img_url.goodsId}}" bindtap="bannerToDetail">
+    <image src="{{img_url.imgUrl}}" mode="widthFix"></image>
+  </view>
+  <!-- 商品 -->
+  <view class='actGoods'>
+    <view class='goodsList' wx:for="{{nineData}}" wx:key="{{index}}" bindtap="nine" data-id='{{item.id}}'>
+      <view class="img">
+         <image src='{{item.imgurl}}' mode="aspectFill"></image>
+      </view>
+      <text class="name">{{item.name}}</text>
+      <view class="low">
+        <view class="imglow">
+          <image src="../../images/ju.png" mode="scaleToFill"></image>
+          <text>超低价</text>
+        </view>
+        <text class="txt">￥</text>
+        <text class="num01">{{item.newPrice[0]}}</text>
+        <text class="num02">.{{item.newPrice[1]?item.newPrice[1]:0}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 砍价活动   积分商城  新人专享-->
+<view class='activity kanjia'>
+  <!-- 砍价活动 -->
+  <!-- <view class='title' bindtap="kj">
+    <image src='../../images/huodong.png'></image>
+    <text class='line'>Bargaining</text>
+    <view class='more'>
+      <text>更多</text>
+      <icon class='iconfont icon-jiantou'></icon>
+    </view>
+  </view>
+  <view class="banner" wx:for="{{kjCont}}" wx:key="{{index}}" wx:for-item="item">
+    <image src="{{item.imgUrl}}" mode="widthFix" data-type="{{item.mode}}"  data-id="{{item.goodsId}}" bindtap="bannerToDetail"></image>
+  </view> 
+  <view class='actGoods'>
+    <view class='goodsList' wx:for="{{zqList}}" wx:key="{{index}}" bindtap="kanjia" data-id="{{item.bargainId}}">
+      <view class="img">
+        <image src='{{item.imgurl}}' mode="aspectFill"></image>
+      </view>
+      <text class="name">【秒杀】{{item.name}}</text>
+      <view class='Bargain clearfix'>
+        <text class="price">￥<text>{{item.price}}</text></text>
+        <text class="btn">马上砍</text>
+      </view>
+    </view>
+  </view>-->
+  <!-- 积分商城 -->
+  <!-- <view class='title' bindtap="toIntegList">
+    <image src='../../images/title_integ.png'></image>
+    <text class='line'>Integral activities</text>
+    <view class='more'>
+      <text>更多</text>
+      <icon class='iconfont icon-jiantou'></icon>
+    </view>
+  </view>
+  <view class="banner" wx:if="{{integData.img}}">
+    <image src="{{integData.img.imgUrl}}" mode="widthFix" data-type="{{integData.img.mode}}"  data-id="{{integData.img.goodsId}}" bindtap="bannerToDetail"></image>
+  </view> -->
+  <!-- 商品 -->
+  <!-- <view class='actGoods'>
+    <view class='goodsList' wx:for="{{integData.goodsList}}" wx:key="{{index}}" bindtap="toIntegDetail" data-id="{{item.id}}">
+      <view class="img">
+        <image src='{{item.imgurl}}' mode="aspectFill"></image>
+      </view>
+      <text class="name">{{item.name}}</text>
+      <view class='Bargain clearfix'>
+        <text class="price">积分价:￥<text>{{item.newPrice}}</text></text>
+      </view>
+    </view>
+  </view> -->
+  <!-- 新人专享 -->
+  <view class='title' bindtap="toNewList">
+    <image src='../../images/new_title.png'></image>
+    <text class='line'>Newcomers Enjoyment</text>
+    <view class='more'>
+      <text>更多</text>
+      <icon class='iconfont icon-jiantou'></icon>
+    </view>
+  </view>
+  <view class="banner" wx:if="{{newData.img}}">
+    <image src="{{newData.img.imgUrl}}" mode="widthFix" data-type="{{newData.img.mode}}"  data-id="{{newData.img.goodsId}}" bindtap="bannerToDetail"></image>
+  </view>
+  <!-- 商品 -->
+  <view class='actGoods'>
+    <view class='goodsList' wx:for="{{newData.goodsList}}" wx:key="{{index}}" bindtap="toNewDetail" data-id="{{item.id}}">
+      <view class="img">
+        <image src='{{item.imgurl}}' mode="aspectFill"></image>
+      </view>
+      <text class="name">{{item.name}}</text>
+      <view class='Bargain clearfix'>
+        <text class="price">￥<text>{{item.newPrice}}</text></text>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 今日主推 -->
+<view style="text-align:center;padding-top: 30rpx;padding-bottom: 14rpx;">
+  <image src="../../images/jinri.png" style="width: 260rpx;" mode="widthFix">
+  </image>
+</view>
+<view class='content' wx:for="{{list}}" wx:key="{{index}}" bindtap="shopInfo" data-goodsid="{{item.id}}">
+  <image src='{{item.imgurl}}' mode="aspectFill"></image>
+  <view>
+    <text class='goodSname'>{{item.name}}</text>
+    <view class='price'>￥
+      <text>{{item.price}}</text>
+    </view>
+    <view class="num">销量:{{item.numSale}}</view>
+  </view>
+</view>
+<!-- 优惠券的弹窗 -->
+<view wx:if="{{isShowProp}}" class="prop_div" catchtouchmove="return">
+  <view class="prop_content">
+    <view class="coupon_div">
+      <image mode="widthFix" src="../../images/coupon_bg.png"></image>
+      <view class="coupon">
+        <view class="title">-优惠券礼包-</view>
+        <view class="money">¥
+          <text class="price">{{couponPrice}}</text>
+        </view>
+        <view class="btn">
+          <text bindtap="toCoupon">立即查看</text>
+        </view>
+      </view>
+    </view>
+    <view class="iconfont icon-guanbi" catchtap="closeProp"></view>
+  </view>
+</view>
+
+<view style="height:160rpx;"></view>
+
+<tab-bar-0 selected="0"></tab-bar-0>
+<view class="newTab"></view>

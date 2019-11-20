@@ -1,0 +1,54 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<!-- <cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+  <cover-view class="tab_div">
+    <cover-view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
+    <cover-view style="color: {{selected === index ? selectedColor : color}}">{{item.text}}</cover-view>
+    </cover-view>
+  </cover-view>
+  
+</cover-view> -->
+<!-- <cover-view class="tab-bar">
+  <cover-image src="/images/fenxi.png" mode="widthFix"></cover-image>
+</cover-view> -->
+
+
+<!-- lsl修改底部tabbar样式 -->
+<cover-view class="tab-bar-common">
+  <cover-view class="left">
+    <cover-view class="icons">
+      <block wx:for="{{list}}" wx:key="index">
+        <!-- 购物车页面购物车样式修改 -->
+        <block wx:if="{{selected == 2 && index == 2}}">
+          <cover-view class="item cart">
+            <cover-view class="cart-view">
+              <cover-image src="{{item.selectedIconPath}}" mode="widthFix"></cover-image>
+              <cover-view class="total">￥{{totalPrice}}</cover-view>
+              <cover-view class="right" wx:if="{{show_edit}}" bindtap="sub">下单</cover-view>
+              <cover-view class="right" wx:else bindtap="delete">删除</cover-view>
+            </cover-view>
+          </cover-view>
+        </block>
+        <block wx:else>
+          <cover-view class="item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+            <cover-image src="{{selected == index ? item.selectedIconPath : item.iconPath}}" mode="widthFix"></cover-image>
+            <cover-view style="color: {{selected == index ? selectedColor : color}}">{{item.text}}</cover-view>
+          </cover-view>
+        </block>
+      </block>
+    </cover-view>
+
+    <block wx:if="{{selected != 2}}">
+      <cover-image class="share" src="/images/fenxi.png" mode="widthFix"  bindtap="toShare"></cover-image>
+    </block>
+  </cover-view>
+</cover-view>
+
+
+
+
+
+<!-- <cover-view class="fx" bindtap="toShare">
+   <cover-image src="/images/fenxi.png" mode="widthFix"></cover-image>
+</cover-view> -->

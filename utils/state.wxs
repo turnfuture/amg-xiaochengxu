@@ -1,0 +1,39 @@
+function status(id) {
+  var statusJson = '';
+
+  switch (id) {
+    case 0:
+      statusJson = "砍价中";
+      break;
+    case 1:
+      statusJson = "待支付";
+      break;
+    case 2:
+      statusJson = "拼团中";
+      break;
+    case 3:
+      statusJson = "待发货";
+      break; 
+    case 4:
+      statusJson = "待收货";
+      break;
+    case 5:
+      statusJson = "退货中";
+        break;  
+    case 6:
+      statusJson = "退货成功";
+      break;
+    case 7:
+      statusJson = "订单完成";
+      break;
+    case 8:
+      statusJson = "订单取消";
+      break;
+  
+  }
+  return statusJson;
+}
+module.exports = {
+  status: status
+}
+

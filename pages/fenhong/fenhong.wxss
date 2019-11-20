@@ -1,0 +1,111 @@
+/* pages/fenhong/fenhong.wxss */
+
+.fenhong {
+  width: 90%;
+  padding: 40rpx 5%;
+  margin: 0 auto;
+  background: #970407;
+  text-align: center;
+}
+
+.fenhong text {
+  display: block;
+}
+
+.jilu {
+  color: white;
+  text-align: right;
+  font-size: 24rpx;
+}
+
+.price {
+  font-size: 48rpx;
+  color: white;
+  font-weight: bold;
+}
+
+.yue {
+  color: #dc8a8c;
+  font-size: 24rpx;
+}
+
+.tixian {
+  margin-top: 40rpx;
+}
+
+.tixian button[type=warn] {
+  background: #ffe5e5e5;
+  color: #ff970407;
+  padding: 0 2em;
+  border-radius: 10rpx;
+}
+
+/* tab */
+
+.swiper-tab {
+  width: 100%;
+  /* border-bottom: 2rpx solid #ccc; */
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  font-size: 30rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.swiper-tab-item {
+  width: 50%;
+  color: #434343;
+}
+
+.active {
+  /* color:#F65959; *//* border-bottom: 4rpx solid rgb(204, 199, 199)253, 61, 61); *//* background：rgb(204, 199, 199)253, 61, 61);
+    color：#434343; */
+  color: #970407;
+  border-bottom: 4rpx solid #970407;
+  /* font-weight: 500; */
+}
+
+swiper {
+  /* width: 94%;
+  margin: 0 auto; */
+  width: 100%;
+  /* height: 100%; *//* padding: 0 3%; */
+  border-top: 15rpx solid #f4f4f4;
+}
+
+.item {
+  width: 90%;
+  padding: 20rpx 5%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.itemLeft {
+  display: flex;
+}
+
+.itemLeft image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.itemLeft text {
+  display: block;
+  font-size: 24rpx;
+  color: #9c9c9c;
+}
+
+.itemLeft text:first-child {
+  color: #626262;
+}
+
+.itemRight {
+  font-size: 32rpx;
+  color: #970407;
+}

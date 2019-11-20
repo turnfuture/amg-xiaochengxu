@@ -1,0 +1,16 @@
+<!--pages/collEction/collEction.wxml-->
+<block wx:if="{{goodList.length>0}}" wx:for="{{goodList}}" wx:key="{{index}}">
+  <view class="good_div" data-id="{{item.goodsId}}" bindtap="toGoodDetail">
+    <image class="img" mode="aspectFill" src="{{item.imgurl}}"></image>
+    <view class="good_right">
+      <view class="name">{{item.name}}</view>
+      <view class="good_bottom">
+        <text class="money">¥<text class="price">{{item.price}}</text></text>
+        <view data-id="{{item.goodsId}}" data-index="{{index}}" catchtap="cancleCollect" class="btn">取消收藏</view>
+      </view>
+    </view>
+  </view>
+</block>
+<view class="empty_div" wx:if="{{goodList.length==0}}">暂无数据</view>
+
+

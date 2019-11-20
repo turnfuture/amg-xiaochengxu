@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#dedede",
+  "navigationBarTitleText": "积分订单"
+}

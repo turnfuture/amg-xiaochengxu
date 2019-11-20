@@ -1,0 +1,144 @@
+/* tab-bar {
+  height: 60rpx;
+} */
+.tab-bar-common {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 94rpx;
+  padding-bottom: 30rpx;
+  z-index: 2;
+}
+
+.left{
+  width: 86%;
+  margin: 0 auto;
+  display: flex;
+  overflow: hidden;
+}
+.left .icons{
+  flex-grow: 1;
+  overflow: hidden;
+  display: flex;
+  background: #970407;
+  border-radius: 50rpx;
+}
+.left .item{
+  flex: 1;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.left .item cover-image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 0rpx;
+  display: inline-block;
+}
+.left .item cover-view{
+  font-size: 22rpx;
+}
+.left .share{
+  width: 94rpx;
+  height: 94rpx;
+  margin-left: 20rpx;
+}
+.tab-bar, .fx {
+  position: fixed;
+  bottom: 100rpx;
+}
+
+.tab-bar {
+  width: 70%;
+  display: flex;
+  padding-bottom: env(safe-area-inset-bottom);
+  background: #970407;
+  border-radius: 50rpx;
+  color: #cd6e70;
+  padding: 12rpx 0;
+  left: 7%;
+}
+
+.fx {
+  right: 7%;
+  margin-left: 20rpx;
+}
+
+.tab-bar-border {
+  background-color: rgba(0, 0, 0, 0.33);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+
+.tab_div {
+  flex: 4;
+  display: flex;
+  overflow: hidden;
+}
+
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tab-bar-item cover-image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 6rpx;
+}
+
+.tab-bar-item cover-view {
+  font-size: 22rpx;
+}
+
+.fx cover-image {
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.fx cover-view {
+  font-size: 20rpx;
+}
+
+/* lsl新增样式 */
+.left .cart {
+  flex: 3;
+  padding: 0;
+  height: 100%;
+}
+
+.cart-view {
+  background: rgb(189, 185, 185);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  border-radius: 50rpx;
+  height: 100%;
+  color: #fff;
+  padding: 0 22rpx;
+}
+
+.cart-view cover-image {
+  margin-right: 10rpx;
+}
+
+.left .cart .cart-view .total {
+  font-size: 30rpx;
+}
+
+.left .cart .cart-view .right {
+  margin-left: auto;
+  font-size: 26rpx;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  display: inline-block;
+}

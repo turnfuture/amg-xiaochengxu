@@ -1,0 +1,188 @@
+<!--pages/perSoner/perSoner.wxml-->
+<!-- 头像块 -->
+<view class='userInfo'>
+  <image src='{{perInfo.avator}}'></image>
+</view>
+<view class='cards'>
+  <view class="clearfix">
+    <view class="set" bindtap="toSetting">
+      <icon class='iconfont icon-shezhi'></icon>
+      <view>设置</view>
+    </view>
+  </view>
+  <view class="neMes">
+    <text>{{perInfo.name}}</text>
+    <view>{{perInfo.level==0?'游客':perInfo.level==1?'客官':perInfo.level==2?'掌柜':'股东'}}</view>
+  </view>
+  <!-- 提现金额 -->
+  <view class="moneys">
+    <view class="moneyItem" bindtap="toTodayIncome">
+      <view>{{perInfo.todayPrice}}</view>
+      <view class="money_bottom">
+        <text>今日收益</text>
+        <text class="iconfont icon-jiantou"></text>
+      </view>
+    </view>
+    <view class="moneyItem" bindtap="toAccount">
+      <view class="num">{{perInfo.allPrice}}</view>
+      <view class="money_bottom">
+        <view class="txt">
+          <text>账户余额</text>
+          <text class="iconfont icon-jiantou"></text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="moneyItem"  bindtap="fenhong">
+      <view>{{perInfo.kPrice}}</view>
+      <view class="money_bottom">
+        <text>可提现金额</text>
+        <text class="iconfont icon-jiantou"></text>
+      </view>
+    </view> -->
+    <!-- <view class="moneyItem"  bindtap="toMineIncome">
+      <view>{{perInfo.scoreNum}}</view>
+      <view class="money_bottom">
+        <view class="txt">
+          <text>积分金额</text>
+          <text class="iconfont icon-jiantou"></text>
+        </view>
+      </view>
+    </view> -->
+    <view class="moneyItem" bindtap="toCoupon">
+      <view class="num">{{perInfo.couponNum}}</view>
+      <view class="money_bottom">
+      <view class="txt_right">
+        <text>优惠券</text>
+        <text class="iconfont icon-jiantou"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='myOrder'>
+  <text>我的订单</text>
+  <view class='order'>
+    <block>
+      <view class='orderList'>
+        <view class='orderTabbar' bindtap='myOrder' data-id='1'>
+          <image src='../../images/fukuan.png' bindload="onImageLoad"></image>
+          <view>待付款</view>
+          <text wx:if="{{perInfo.payNum>0}}" class='orderNum'>{{perInfo.payNum>99?'99+':perInfo.payNum}}</text>
+        </view>
+      </view>
+      <view class='orderList'>
+        <view class='orderTabbar' bindtap='myOrder' data-id='2'>
+          <image src='../../images/fahuo.png' bindload="onImageLoad"></image>
+          <view>待发货</view>
+          <text wx:if="{{perInfo.faNum>0}}" class='orderNum'>{{perInfo.faNum>99?'99+':perInfo.faNum}}</text>
+        </view>
+      </view>
+      <view class='orderList'>
+        <view class='orderTabbar' bindtap='myOrder' data-id='3'>
+          <image src='../../images/shouhuo.png' bindload="onImageLoad"></image>
+          <view>待收货</view>
+          <text wx:if="{{perInfo.shouNum>0}}" class='orderNum'>{{perInfo.shouNum>99?'99+':perInfo.shouNum}}</text>
+        </view>
+      </view>
+      <!-- <view class='orderList'>
+        <view class='orderTabbar' bindtap='myOrder' data-id='4'>
+          <view>待评价</view>
+          <text wx:if="{{perInfo.pingNum>0}}" class='orderNum'>{{perInfo.pingNum>99?'99+':perInfo.pingNum}}</text>
+        </view>
+      </view> -->
+      <view class='orderList'>
+        <view class='orderTabbar' bindtap='myOrderRefund' data-id='5'>
+          <image src='../../images/shouhou.png' bindload="onImageLoad"></image>
+          <view>退款/售后</view>
+          <!-- <text wx:if="{{perInfo.errorNum>0}}" class='orderNum'>{{perInfo.errorNum>99?'99+':perInfo.errorNum}}</text> -->
+        </view>
+      </view>
+      <view class='orderList'>
+        <view class='orderTabbar'>
+          <button class="service" open-type="contact">
+            <image src='../../images/pingjia.png' bindload="onImageLoad"></image>
+            <view>联系客服</view>
+          </button>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 我的粉丝 -->
+<view class="fansTitle" wx:if="{{perInfo.level!=3}}">
+  <view>我的粉丝</view>
+</view>
+<view class="fansContent" wx:if="{{perInfo.level!=3}}">
+  <view bindtap="toTeam">
+    {{perInfo.allNum}}
+  </view>
+  <view>
+    <view>
+      {{perInfo.todayNum}}
+    </view>
+    <text>今日新增</text>
+  </view>
+  <view>
+    <view>
+      {{perInfo.yesterdayNum}}
+    </view>
+    <text>昨日新增</text>
+  </view>
+</view>
+<!-- 列表 -->
+<view class='pluginList'>
+  <!-- <view class='groupItem' bindtap='toMineGroup'>
+    <view class='name'>
+      <image src="../../images/tuangou.png"></image>
+      <text>我的团购</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view> -->
+  <!-- <view class='groupItem' bindtap='toBargainDetail'>
+    <view class='name'>
+      <image src="../../images/xiangqing.png"  mode="widthFix" bindload="onImageLoad"></image>
+      <text>砍价详情</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view> -->
+  <!-- <view class='groupItem' bindtap='orderIntegList'>
+    <view class='name'>
+      <image src="../../images/mine_integ.png" mode="widthFix" bindload="onImageLoad"></image>
+      <text>积分订单</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view> -->
+  <view class='groupItem' bindtap='toCollect'>
+    <view class='name'>
+      <image src="../../images/shoucang.png" mode="widthFix" bindload="onImageLoad"></image>
+      <text>我的收藏</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
+  <view class='groupItem' bindtap='toMsg'>
+    <view class='name'>
+      <image src="../../images/xiaoxi.png" mode="widthFix" bindload="onImageLoad"></image>
+      <text>消息</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
+  <view class='groupItem' bindtap='toAddress'>
+    <view class='name'>
+      <image src="../../images/dizhi.png" mode="widthFix" bindload="onImageLoad"></image>
+      <text>地址管理</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
+  <view class='groupItem' bindtap='toManager'>
+    <view class='name'>
+      <image src="../../images/mine_manager.png" mode="widthFix" bindload="onImageLoad"></image>
+      <text>掌柜权益</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
+</view>
+
+<view style="height:160rpx;"></view>
+
+<tab-bar selected="3"></tab-bar>
+<view class="newTab"></view>

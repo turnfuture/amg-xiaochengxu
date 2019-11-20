@@ -1,0 +1,44 @@
+<!--pages/address/address.wxml-->
+<view class="noAress" wx:if="{{addressList.length==0}}">
+        暂无收货地址
+</view>
+<view class="address" wx:else>
+  <view class="userSite">
+    <block wx:for="{{addressList}}" wx:key="index">
+      <view data-index="{{index}}" bindtap="selctAdress" class="addressList">
+        <view class="userMsg">
+          <text>{{item.fullName}}</text>
+          <text>{{item.phone}}</text>
+        </view>
+        <view class="addressMsg">{{item.province}}{{item.city}}{{item.county}}{{item.address}}</view>
+        <view class="siteSet">
+          <view catchtap="default" data-index="{{index}}" class="siteLeft" data-addressid="{{item.id}}" data-default="{{item.defaultValue}}">
+            <!-- <icon color="#970407" type="success" role="img"> </icon>
+          <text class="default">默认地址 </text> -->
+            <icon type='success' color='#970407' wx:if="{{item.defaultValue == 0}}"></icon>
+            <icon type='circle' wx:else></icon>
+            <text class='default' wx:if="{{item.defaultValue == 0}}">默认地址</text>
+            <text class='default1' wx:else>设置为默认地址</text>
+          </view>
+          <view class="siteRight">
+            <view catchtap="editAddress" class="siteEdit" data-addressid="{{item.id}}">
+              <icon class="iconfont icon-icon-edit" role="img">
+              </icon>
+              <text>编辑 </text>
+            </view>
+            <view catchtap="delAddress" class="siteDel" data-index="{{index}}" data-addressid="{{item.id}}">
+              <icon class="iconfont icon-shanchu" role="img">
+              </icon>
+              <text>删除 </text>
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<!-- 新增收货地址 -->
+<view class="addAress" bindtap="Address">
+  新增收货地址
+</view>

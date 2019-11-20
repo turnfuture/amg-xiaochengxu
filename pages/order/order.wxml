@@ -1,0 +1,142 @@
+<!--pages/order/order.wxml-->
+<wxs module="util" src="../../utils/money.wxs"></wxs>
+<!-- 收货人信息 -->
+<!-- 已有地址 -->
+<view class='address' wx:if="{{address.id}}" bindtap="toAddressList">
+  <image class="left" src='../../images/address.png' mode="widthFix"></image>
+  <view class="address_msg">
+    <view class="top">
+      <text class="name">收货人：{{address.fullName}}</text>
+      <text class="phone">{{address.phone}}</text>
+    </view>
+    <view class="msg">{{address.province+address.city+address.county+address.address}}</view>
+  </view>
+  <icon class='iconfont icon-jiantou'></icon>
+</view>
+<!-- 添加地址 -->
+<view wx:else bindtap="toAddressList" class="addSite">
+  <icon class="iconfont icon-tianjiatupian"></icon>
+  <text>添加地址</text>
+</view>
+<image src='../../images/line.png' class='line' mode="widthFix"></image>
+<!-- 订单物品 -->
+<!-- 从购物车进入 -->
+<view wx:if="{{!type}}" class='content' bindtap='list' wx:for="{{orderInfo}}" wx:key="{{index}}">
+  <image src='{{item.imgurl}}' mode="aspectFill"></image>
+  <view>
+    <text class='goodSname'>{{item.name}}</text>
+    <view class='price newPrice'>
+      <view wx:if="{{item.spec}}">
+        规格：{{item.spec}}
+      </view>
+      <view class="goShop">
+        x{{item.num}}
+      </view>
+    </view>
+    <view>
+      <text class='stock'>￥</text>
+      <text class='stock1'>{{item.price}}</text>
+    </view>
+  </view>
+</view>
+<!-- 从商品详情进入 -->
+<view wx:if="{{type}}" class="content">
+  <image src='{{goodInfo.icon}}' mode="aspectFill"></image>
+  <view>
+    <text class='goodSname'>{{goodName}}</text>
+    <view class='price newPrice'>
+      <view wx:if="{{goodInfo.spec}}">
+        规格：{{goodInfo.spec}}
+      </view>
+      <view class="goShop">
+        x{{buyNum}}
+      </view>
+    </view>
+    <view>
+    <text class='stock'>{{type==4?'积分价:￥':'￥'}}</text>
+    <text class='stock1'>{{goodInfo.price}}</text>
+    </view>
+  </view>
+</view>
+<!-- 订单总价 -->
+<view class='shopTotal'>
+  <text class='shopNum'>总共：{{type?buyNum:allNum}}件商品</text> ￥
+  <text class='shopPrice'>{{allPrice?util.numberFormat(allPrice*1):allPrice}}</text>
+</view>
+<!-- 优惠券 -->
+<view wx:if="{{!type}}" class='box' bindtap="xuanCoupon">
+  <view>选择优惠券</view>
+  <view>
+    <icon class="iconfont icon-jiantou"></icon>
+  </view>
+</view>
+<view wx:if="{{type==0}}" class='box' bindtap="xuanCoupon">
+  <view>选择优惠券</view>
+  <view>
+    <icon class="iconfont icon-jiantou"></icon>
+  </view>
+</view>
+<!-- 已优惠 -->
+<view wx:if="{{type==0}}" class='box'>
+  <view>已优惠：</view>
+  <!-- <view>￥{{numberUtil.numberFormat(couponMoney)}}</view> -->
+  <view>￥{{totalMoney}}</view>
+</view>
+<!-- 运费 -->
+<view class='box' wx:if="{{type!=4}}">
+  <view>运费：</view>
+  <view>￥{{allPostFee}}</view>
+</view>
+<!-- 留言 -->
+<view class='message'>
+  <text> 在线留言：</text>
+  <textarea style="height: 7em;" placeholder='请输入留言信息' maxlength="100" bindinput='getMsg'>
+  </textarea>
+</view>
+
+
+<!-- 合计提交订单 -->
+<cover-view class="alls">
+  <!-- <view class="lines"></view> -->
+  <cover-view class='lastView'>
+    <cover-view class='order' catchtap="orderBtn" >提交订单</cover-view>
+    <!-- <text class='money'>{{shopAll}}</text> -->
+    <!-- <cover-view class='money' wx:if='{{bb==1}}'>¥{{util.numberFormat(endPrice)}}</cover-view>
+    <cover-view class='money' wx:elif='{{bb==2}}'>¥{{util.numberFormat(shopAll)}}</cover-view> -->
+    <cover-view class='money'>¥{{util.numberFormat(endPrice)}}</cover-view>
+    <cover-view class='coLor'></cover-view>
+    <cover-view>合计： </cover-view>
+  </cover-view>
+</cover-view>
+
+
+
+
+<!-- 优惠券遮罩 -->
+<!-- 优惠劵 -->
+<cover-view class='couponContent' bindtap='guan' wx:if='{{couponShow}}' catchtouchmove="return">
+  <cover-view class='orderCoupon'>
+    <cover-view class='couponTitle'>选择优惠劵
+      <cover-view type='clear' class='clearCoupon icon'></cover-view>
+    </cover-view>
+    <cover-view class='couponList'>
+      <cover-view class="coupon_div">
+        <cover-view catchtap="selectCoupon" class="couponItem" wx:for="{{couponts}}" wx:key="{{index}}" data-index='{{index}}'>
+        <cover-image class="hongbao" src="../../images/youhuijuan-hong.png" role="img" mode="widthFix">
+        </cover-image>
+        <cover-view type='success_no_circle' class='iconfont icon-sel orange' wx:if='{{index == flagIndex}}'></cover-view>
+        <cover-view class="couponMoney">
+          <cover-view class="money">¥ {{item.money}}</cover-view>
+        </cover-view>
+        <cover-view class="couponTime">
+          <cover-view class="name">满¥{{item.coupon_money}}可用</cover-view>
+          <cover-view class="time">有效期至{{item.limit_endAt}}</cover-view>
+          <cover-view class="icon" role="img">
+          </cover-view>
+        </cover-view>
+      </cover-view>
+      </cover-view>
+    </cover-view>
+    <!-- <cover-view class='sureCouponBtn' bindtap='confirmBtn'>确定</cover-view> -->
+  </cover-view>
+</cover-view>

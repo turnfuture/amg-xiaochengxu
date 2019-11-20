@@ -1,0 +1,44 @@
+<!--pages/myOrderInteg/myOrderInteg.wxml-->
+<wxs src='../../utils/money.wxs' module="numberUtil" />
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+<view current="{{currtab}}" class="swiper-box" duration="300">
+  <scroll-view scroll-y="true" wx:if="{{alreadyOrder.length > 0}}">
+    <block wx:for="{{alreadyOrder}}" wx:key="{{index}}" wx:for-item="item">
+      <view class="oderbox">
+        <view class='perSon'>
+          <text>订单号：{{item.order_sn}}</text>
+          <text wx:if="{{item.status==0}}">待发货</text>
+          <text wx:elif="{{item.status==1}}">兑换成功</text>
+          <text wx:elif="{{item.status==2}}">兑换失败</text>
+        </view>
+
+        <view class='content' wx:for="{{item.detailList}}" wx:for-item="list" wx:key="{{index}}" data-id="{{item.id}}" bindtap='orderDetails'>
+          <image src='{{list.imgurl}}' mode="aspectFill"></image>
+          <view>
+            <text class='goodSname'>{{list.goodName}}</text>
+            <view class='price'>
+              <text wx:if="{{list.spec}}">规格：{{list.spec}}</text>
+              <view class="goShop">x{{list.total}}</view>
+            </view>
+            <text class='stock'>积分价￥</text>
+            <text class='stock1'>{{list.price}}</text>
+          </view>
+        </view>
+        <view>
+        </view>
+        <view class='shopTotal'>
+          <text class='shopNum'>总共{{item.allTotal}}件商品：积分价￥</text>
+          <text class='shopPrice'>{{item.payment}}</text>
+        </view>
+      </view>
+     
+ 
+    </block>
+  </scroll-view>
+  <view class="empty_div" wx:if="{{alreadyOrder.length == 0}}">暂时没有该类型订单~</view>
+
+</view>

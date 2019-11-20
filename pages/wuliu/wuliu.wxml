@@ -1,0 +1,32 @@
+<!--pages/wuliu/wuliu.wxml-->
+<view class='address'>
+  <image class="left" src='../../images/address.png' mode="widthFix"></image>
+  <view class="address_msg">
+    <view class="top">
+      <text class="name">收货人：{{orderShippingDO.receiverName}}</text>
+      <text class="phone">{{orderShippingDO.receiverPhone}}</text>
+    </view>
+    <view class="msg">{{orderShippingDO.receiverProvince}}{{orderShippingDO.receiverCity}}{{orderShippingDO.receiverCounty}}{{orderShippingDO.receiverAddress}}</view>
+  </view>
+</view>
+
+<!-- 物流信息 -->
+<view class="wlInfo">
+  <view class="logistic_title">{{messageDO.name}}快递：{{messageDO.expressId}}</view>
+  <text class="title">物流信息</text>
+  <block wx:if='{{expressDetailsList.length>0}}'  wx:for="{{expressDetailsList}}" wx:key="item">
+    <view class="logistic_div {{index==0?'cur':''}}">
+      <icon class="iconfont icon-xuanzhong"></icon>
+      <view>
+        <view>
+          <!-- 圆通快递河南郑州二七区派件员：张小小15638872191 正在为你派件  -->
+          {{item.message}}
+        </view>
+        <text>{{item.timeDate}}{{item.timeClock}}</text>
+      </view>
+    </view>
+  </block>
+  <view class="empty_div" wx:if='{{expressDetailsList.length==0}}'>
+    暂无物流信息
+  </view>
+</view>

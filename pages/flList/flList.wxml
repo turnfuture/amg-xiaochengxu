@@ -1,0 +1,17 @@
+<!--pages/flList/flList.wxml-->
+<block wx:if="{{goodList.length>0}}" wx:for="{{goodList}}" wx:key="{{index}}">
+  <view class="good_div" data-id="{{item.id}}" bindtap="toGoodDetail">
+    <image class="img" mode="aspectFill" src="{{item.imgurl}}"></image>
+    <view class="good_right">
+      <view class="name">{{item.name}}</view>
+      <view class="stock">库存：{{item.stock}}</view>
+      <view class="good_bottom">
+        <text class="money">¥<text class="price">{{item.price}}</text></text>
+        <view data-id="{{item.goodsId}}" catchtap="addCart" class="iconfont icon-cart"></view>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{goodList.length==0}}">
+  <view class="empty_div">暂无数据</view>
+</block>

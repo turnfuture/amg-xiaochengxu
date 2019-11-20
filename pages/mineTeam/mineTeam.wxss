@@ -1,0 +1,75 @@
+/* pages/mineTeam/mineTeam.wxss */
+page{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.team_list{
+  flex-grow: 1;
+  overflow: hidden;
+}
+.team_list scroll-view{
+  height: 100%;
+  background: #f5f5f5;
+}
+.team_list .team_item{
+  display: flex;
+  overflow: hidden;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+.team_list .team_item:last-child{
+  border-bottom: 0;
+}
+.team_list .team_item .img{
+  flex-shrink: 0;
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+.team_list .team_item .team_left{
+  flex-grow: 1;
+  overflow: hidden;
+}
+.team_list .team_item .team_left .name{
+  color: #333;
+  font-size: 32rpx;
+  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+.team_list .team_item .team_left .name.type{
+  font-size: 28rpx;
+  margin: 10rpx 0;
+  font-weight: normal;
+}
+.team_list .team_item .team_left .time{
+  color: #7D7D7D;
+  font-size: 28rpx;
+}
+.team_list .team_item .team_right{
+  font-size: 28rpx;
+  color: #F2B743;
+}
+.team_list .team_item .team_right text{
+  font-size: 34rpx;
+}
+.team_bottom{
+  line-height: 88rpx;
+  background: #970407;
+  color: #fff;
+  font-size: 32rpx;
+  text-align: center;
+}
+.empty_div{
+  line-height: 400rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+}

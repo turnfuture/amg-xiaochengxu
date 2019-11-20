@@ -1,0 +1,64 @@
+<!--pages/orderxq/orderxq.wxml-->
+<wxs src='../../utils/money.wxs' module="numberUtil" />
+<wxs src='../../utils/state.wxs' module='filters' /> 
+<!-- 收货人信息 -->
+<view class='address'>
+  <image class="left" src='../../images/address.png' mode="widthFix"></image>
+  <view class="address_msg">
+    <view class="top">
+      <text class="name">收货人：{{orderDetails.receiver_name}}</text>
+      <text class="phone">{{orderDetails.receiver_phone}}</text>
+    </view>
+    <view class="msg">{{orderDetails.receiver_province}}{{orderDetails.receiver_city}}{{orderDetails.receiver_county}}{{orderDetails.receiver_address}}</view>
+  </view>
+</view>
+<image src='../../images/line.png' class='line'></image>
+
+<!-- 订单物品 -->
+<view class='content' wx:for="{{orderDetails.goodsList}}" wx:key="{{index}}">
+  <image src='{{item.imgurl}}'></image>
+  <view>
+    <text class='goodSname'>{{item.goodsName}}</text>
+    <view class='price'>
+      <text wx:if='{{item.spec}}'>规格：{{item.spec}}</text>
+      <view class="goShop">
+        x{{item.total}}
+      </view>
+    </view>
+    <view class="bottom">
+      <text class='stock'>￥<text class='stock1'>
+      {{item.goodsPrice}}
+    </text></text>
+    </view>
+  </view>
+</view>
+<!-- 订单总价 -->
+<view class='shopTotal'>
+  <text class='shopNum'>总共{{orderDetails.allNumber}}件商品：</text> ￥
+  <text class='shopPrice'>{{orderDetails.goodsAllPrice}}</text>
+</view>
+<view class='shopTotal'>
+  <text class='shopNum'>快递费：￥{{orderDetails.post_fee}}</text>
+</view>
+<view class='shopTotal'>
+  <text class='shopNum'>优惠金额：￥{{orderDetails.couponPrice}}</text>
+</view>
+<view class='shopTotal'>
+  <text class='shopNum'>实际支付：</text> ￥
+  <text class='shopPrice'>{{orderDetails.payment}}</text>
+</view>
+
+
+<!-- 订单状态 -->
+<view class="state ">订单状态：{{filters.status(orderDetails.status)}}</view>
+<view class="orderNum">订单编号：{{orderDetails.order_sn}}</view>
+<view class="orderNum">留言信息：{{orderDetails.buyer_msg?orderDetails.buyer_msg:'无'}}</view>
+<view class="orderNum">创建时间：{{orderDetails.create_at}}</view>
+<view class="orderNum" wx:if="{{orderDetails.pay_at}}">付款时间：{{orderDetails.pay_at}}</view>
+<view class="orderNum" wx:if="{{orderDetails.consign_at}}">发货时间：{{orderDetails.consign_at}}</view>
+
+<view class="bottom_div">
+  <button class="service" open-type="contact">联系客服</button>
+</view>
+   
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#dedede",
+  "navigationBarTitleText": "砍价详情"
+}

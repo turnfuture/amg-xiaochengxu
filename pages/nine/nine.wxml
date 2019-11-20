@@ -1,0 +1,26 @@
+<!--pages/nine/nine.wxml-->
+<view class="fullImg">
+  <image src="{{topImg}}" mode="widthFix"></image>
+</view>
+<view class="boxContent">
+  <image src="../../images/jingxuan-min.png" class="fullImg" mode="widthFix" bindload="onImageLoad"></image>
+</view>
+<!-- 9.9块专区 -->
+<view class='activity jiu' wx:if="{{list1.length>0}}">
+  <view class='actGoods'>
+    <view class='goodsList' wx:for="{{list1}}" wx:for-item="item" wx:key="{{item.id}}" wx:for-index="index" data-id="{{item.id}}" bindtap="toDetail">
+      <view class="img">
+        <image src='{{item.imgurl}}'></image>
+      </view>
+      <text class="name"><text>【包邮】</text>{{item.name}}</text>
+      <view class="low">
+        <image src="../../images/ju.png"></image>
+        <text>特价</text>
+        <text>￥</text>
+        <text>{{item.newPrice}}</text>
+        <text>马上抢</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="empty_div" wx:else>暂无商品</view>

@@ -1,0 +1,23 @@
+<!--pages/search/search.wxml-->
+<!-- 搜索 -->
+<view class="search_view">
+  <view class="search_div">
+    <view class="iconfont icon-search"></view>
+    <input bindinput="searchInput" placeholder="请输入商品名称" bindconfirm="searchFood" confirm-type="search" value="{{searchKey}}" />
+  </view>
+</view>
+<block wx:if="{{goodList.length>0}}" wx:for="{{goodList}}" wx:key="{{index}}">
+  <view class="good_div" data-id="{{item.goodsId}}" bindtap="toGoodDetail">
+    <image class="img" mode="aspectFill" src="{{item.imgurl}}"></image>
+    <view class="good_right">
+      <view class="name">{{item.name}}</view>
+      <view class="stock">库存：{{item.stock}}</view>
+      <view class="good_bottom">
+        <text class="money">¥<text class="price">{{item.price}}</text></text>
+      </view>
+    </view>
+  </view>
+</block>
+<block wx:if="{{goodList.length==0}}">
+  <view class="empty_div">暂无数据</view>
+</block>

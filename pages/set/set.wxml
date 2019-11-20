@@ -1,0 +1,45 @@
+<!--pages/set/set.wxml-->
+<!-- 头像 -->
+<view class="head">
+  <image src="{{userInfo.avator}}"></image>
+  <!-- <view>{{userInfo.name}}</view> -->
+</view>
+<view class="tuijian">
+   <text class="txt">昵称</text>
+   <text class="value">{{userInfo.name}}</text>
+</view>
+<view class="tuijian">
+   <text class="txt">身份</text>
+   <text class="value">{{userInfo.level==0?'游客':userInfo.level==1?'客官':userInfo.level==2?'掌柜':'股东'}}</text>
+</view>
+<!-- 微信号： -->
+<!-- <view class='groupItem' bindtap='coupon'>
+  <text class="wechatNum">微信号：</text>
+  <input placeholder="请输入您的微信号"></input>
+</view> -->
+<!-- 手机号 -->
+<!-- <view class='groupItem' bindtap='coupon'>
+  <text class="wechatNum">手机号：</text>
+  <input placeholder="请输入您的手机号"></input>
+</view> -->
+<!-- 推荐人 -->
+<view class="tuijian">
+   <text class="txt">我的推荐人</text>
+   <text class="value">{{userInfo.fatherName?userInfo.fatherName:'无'}}</text>
+</view>
+<!-- <view class="tuijian" bindtap="toAccount">
+   <text class="txt">我的余额</text>
+   <text class="value">{{userInfo.allPrice}}</text>
+   <text class="iconfont icon-jiantou"></text>
+</view>
+<view class="tuijian"  bindtap="toMineIncome">
+   <text class="txt">我的积分</text>
+   <text class="value">{{userInfo.scoreNum}}</text>
+   <text class="iconfont icon-jiantou"></text>
+</view>
+<view class="tuijian" bindtap="toCoupon">
+   <text class="txt">我的优惠券</text>
+   <text class="value">{{userInfo.couponNum}}</text>
+   <text class="iconfont icon-jiantou"></text>
+</view> -->
+<!-- <button type="warn">完成</button> -->

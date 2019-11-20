@@ -1,0 +1,198 @@
+/* pages/orderxq/orderxq.wxss */
+@import "/font/font.wxss";
+
+.line {
+  width: 100%;
+  height: 5rpx;
+}
+
+/* 今日主推 */
+
+.content {
+  display: flex;
+  padding: 10rpx;
+  border-bottom: 1rpx solid #eee;
+  overflow: hidden;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content image {
+  margin-right: 20rpx;
+width: 200rpx;
+height: 200rpx;
+flex-shrink: 0;
+}
+
+.content>view {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.content  text {
+  display: inline-block;
+}
+
+.goodSname {
+  color: #1b1b1b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.content .price {
+  font-size: 28rpx;
+  color: #434343;
+  position: relative;
+}
+.bottom{
+margin-top: 10rpx;
+}
+.stock {
+  font-size: 28rpx;
+  color: #e31537;
+}
+
+.stock1 {
+  font-size: 32rpx;
+  color: #e31537;
+  font-weight: bold;
+}
+
+/* .through{
+  text-decoration:line-through ;
+  color: #E5E5E5;
+  margin-left: 20rpx;
+} */
+
+.goShop {
+  position: absolute;
+  right: 10rpx;
+  top: 0rpx;
+  color: #434343;
+  font-size: 24rpx;
+  border-radius: 15rpx;
+}
+
+.content>view {
+  position: relative;
+}
+
+.name {
+  height: 60rpx;
+}
+
+.num01, .num02 {
+  font-weight: bold;
+}
+
+.num01 {
+  font-size: 28rpx;
+}
+
+.shopTotal {
+  font-size: 28rpx;
+  color: #e31537;
+  text-align: right;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+  padding-right: 39rpx;
+}
+
+.shopPrice {
+  font-size: 32rpx;
+}
+
+.shopNum {
+  color: #313131;
+}
+
+.state, .orderNum {
+  width: 94%;
+  margin: 0 auto;
+  font-size: 28rpx;
+}
+
+.state {
+  color: #d50000;
+  margin-top: 20rpx;
+}
+
+.orderNum {
+  color: #434343;
+    margin-top: 15rpx;
+}
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  overflow: hidden;
+  padding: 20rpx;
+  margin-bottom: -24rpx;
+}
+
+.address .left {
+  width: 38rpx;
+  height: 50rpx;
+  flex-shrink: 0;
+}
+
+.address .address_msg {
+  flex-grow: 1;
+  margin: 0 20rpx;
+}
+
+.address .address_msg .top {
+  overflow: hidden;
+  display: flex;
+}
+
+.address .address_msg .msg, .address .address_msg .top text {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.address .address_msg .top text.name {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.address .address_msg .top text.phone {
+  flex-shrink: 0;
+}
+
+.address .address_msg .msg {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.address .iconfont {
+  font-size: 30rpx;
+  color: #333;
+  flex-shrink: 0;
+}
+.bottom_div{
+  text-align: center;
+  margin: 60rpx 0;
+}
+.service{
+  color: #d50000;
+  display: inline-block;
+  border: 1rpx solid #d50000;
+  border-radius: 30rpx;
+  font-size: 30rpx;
+  width: 400rpx;
+  text-align: center;
+  margin-right: 25rpx;
+  background: #fff;
+}

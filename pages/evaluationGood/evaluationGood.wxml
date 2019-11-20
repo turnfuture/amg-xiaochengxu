@@ -1,0 +1,41 @@
+<!--pages/evaluationGood/evaluationGood.wxml-->
+<scroll-view scroll-y>
+  <view class="evaluate_list">
+    <block wx:for="{{goodList}}" wx:key="{{index}}">
+      <view class="evaluate_item">
+        <view class="good_div">
+          <image class="img" mode="aspectFill" src="{{item.imgurl}}"></image>
+          <view class="good_right">
+            <view class="name">{{item.goodsName}}</view>
+            <view class="score_div">
+              <text class="txt">描述相符:</text>
+              <view class="start">
+                <text data-index="{{index}}" catchtap="changeScore1" class="iconfont icon-star-fill {{evaluateList[index].start>0?'sel':''}}"></text>
+                <text data-index="{{index}}" catchtap="changeScore2" class="iconfont icon-star-fill {{evaluateList[index].start>1?'sel':''}}"></text>
+                <text data-index="{{index}}" catchtap="changeScore3" class="iconfont icon-star-fill {{evaluateList[index].start>2?'sel':''}}"></text>
+                <text data-index="{{index}}" catchtap="changeScore4" class="iconfont icon-star-fill {{evaluateList[index].start>3?'sel':''}}"></text>
+                <text data-index="{{index}}" catchtap="changeScore5" class="iconfont icon-star-fill {{evaluateList[index].start>4?'sel':''}}"></text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="textarea">
+          <textarea placeholder="请输入您的评价内容" data-index="{{index}}" bindinput="getEvaluateTxt"></textarea>
+        </view>
+        <view class="img_div">
+          <block wx:for="{{evaluateList[index].imgurl}}" wx:key="{{idx}}" wx:for-item="imgs" wx:for-index="idx">
+            <view class="img">
+              <image mode="aspectFill" src="{{imgs}}"></image>
+              <view class="iconfont icon-close" data-index="{{index}}" data-idx="{{idx}}" catchtap="deletePhoto"></view>
+            </view>
+          </block>
+          <view wx:if="{{evaluateList[index].imgurl.length<6}}" class="photo_add" data-index="{{index}}" catchtap="addPhoto">
+            <view class="iconfont icon-photo-add"></view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class="btn" bindtap="subimt">提交</view>
+  </view>
+</scroll-view>

@@ -1,0 +1,92 @@
+/* pages/mineIncome/mineIncome.wxss */
+.integ_top {
+  margin: 40rpx 80rpx;
+}
+
+.integ_top .integ_div {
+  width: 100%;
+  height: 340rpx;
+  position: relative;
+  display: inline-block;
+}
+
+.integ_top .integ_div image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.integ_top .integ_div .integ_num {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  z-index: 100;
+}
+
+.integ_top .integ_div .integ_num .num {
+  color: #fff;
+  font-size: 40rpx;
+}
+
+.integ_top .integ_div .integ_num .txt {
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.title {
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 40rpx 20rpx;
+  padding-left: 20rpx;
+  border-left: 6rpx solid #F34B4E;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.integ_list {
+  border-top: 2rpx solid #eaeaea;
+}
+
+.integ_list .integ_item {
+  display: flex;
+  overflow: hidden;
+  padding: 20rpx;
+  border-bottom: 2rpx solid #eaeaea;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.integ_list .integ_item .integ_left {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.integ_list .integ_item .integ_left .type {
+  color: #535353;
+  font-size: 28rpx;
+}
+
+.integ_list .integ_item .integ_left .time {
+  color: #7d7d7d;
+  font-size: 28rpx;
+}
+
+.integ_list .integ_item .integ_right {
+  font-size: 28rpx;
+  color: #F34B4E;
+}
+
+.integ_list .integ_item .integ_right text {
+  font-size: 34rpx;
+}
+.empty_div{
+  text-align: center;
+  line-height: 400rpx;
+  font-size: 30rpx;
+  color: #666;
+}

@@ -1,0 +1,133 @@
+/* pages/fenlei/fenlei.wxss */
+page{
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  display: flex;
+}
+.itemLeft {
+  /* position: fixed;
+  left: 0;
+  top: 108rpx; */
+  width: 100%;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.itemLeft view {
+  /* border-bottom: 2rpx solid #dcdcdc; */
+  padding: 10rpx 20rpx;
+  display: inline-block;
+  border-bottom: 4rpx solid #f5f5f5;
+}
+
+.itemLeft text {
+  display: block;
+  color: #333;
+  font-size: 16px;
+}
+.itemLeft view.active {
+  border-bottom: 4rpx solid #dd191d;
+}
+.itemLeft view.active text {
+  color: #dd191d;
+  font-weight: 600;
+}
+
+
+.itemRight {
+  /* position: absolute;
+  right: 0;
+  top: 180rpx; */
+  width: 100%;
+  background: white;
+  flex-grow: 1;
+  overflow: hidden;
+  padding-bottom: 20rpx;
+}
+.itemRight scroll-view{
+  width: 100%;
+  height: 100%;
+}
+
+.clear:after {
+  display: block;
+  height: 0;
+  clear: both;
+  content: '';
+}
+
+.fSearch {
+  width: 80%;
+  background: #f0f0f0;
+  border-radius: 40rpx;
+  margin: 20rpx auto 20rpx;
+  display: flex;
+  font-size: 14px;
+  padding: 10rpx 0;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fSearch input {
+  display: block;
+  color: #bfbfbf;
+}
+
+.fSearch icon {
+  display: block;
+  width: 20rpx;
+  margin-left: 120rpx;
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+}
+
+.plaColor {
+  color: #bfbfbf;
+}
+
+.goodsBox {
+  column-count: 2;
+  column-gap: 20rpx;
+  margin: 20rpx;
+}
+
+.fGoods {
+  break-inside: avoid; 
+  box-sizing: border-box;
+  margin-bottom: 20rpx;
+}
+.fGoods .img {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+}
+.fGoods image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.fGoods .name {
+  font-size: 30rpx;
+  color: #1b1b1b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fGoods .price {
+  font-size: 34rpx;
+  color: #dd191d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+    color: transparent;
+}

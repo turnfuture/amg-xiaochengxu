@@ -1,0 +1,14 @@
+<!--pages/goPresen/goPresen.wxml-->
+<wxs src='../../utils/money.wxs' module="numberUtil" />
+<view class="account_div">
+  账户余额：{{kPrice}}
+</view>
+<view>
+    <input placeholder="请输入您的支付宝账号" bindinput="getNum" value="{{value}}" maxlength='30'></input>
+    <input placeholder="请输入提现金额" type="digit" bindinput="getMoeny" value="{{util.numberFormat(value)}}"></input>
+</view>
+<view class="mode">
+  <icon class="iconfont icon-xuanzhong"></icon>
+ <image src="../../images/alipay.png" mode="widthFix"></image>
+</view>
+<button  type="warn" class="tx" bindtap="tixian">提现</button>

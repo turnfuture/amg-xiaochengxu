@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tab-bar-0": "/custom-tab-bar/index"
+  },
+  "navigationBarTitleText": "首页",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#dedede"
+}

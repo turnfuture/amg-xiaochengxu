@@ -1,0 +1,38 @@
+<!--pages/share/share.wxml-->
+<canvas canvas-id="shareCanvas" style="width:{{width}}px;height:{{height}}px;visibity:{{shareShow}}" ></canvas>
+<view class="share_div" id="content">
+  <view class="share_top" id="top">
+  <!--  -->
+    <swiper duration="1000" bindchange="chageImg" previous-margin="60rpx" next-margin="60rpx" style="height:{{swiperHeight}}px;">
+      <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFill" />
+          <view class="content">
+            <view class="content_div">
+              <view class="content_left">
+                <image class="avator" src="{{avator}}" mode="aspectFill"></image>
+                <view class="name">{{name}}</view>
+                <text class="txt">长按识别小程序码</text>
+              </view>
+              <view class="content_right">
+                <image src="{{qrcode}}" mode="widthFix"></image>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="share_bottom">
+    <view class="item">
+      <button open-type="share">
+        <icon class="iconfont icon-wx"></icon>
+        <text>分享好友</text>
+      </button>
+    </view>
+    <view class="item" bindtap="save">
+      <icon class="iconfont icon-save1"></icon>
+      <text>保存图片</text>
+    </view>
+  </view>
+</view>

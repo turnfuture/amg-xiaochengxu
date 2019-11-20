@@ -1,0 +1,146 @@
+/* pages/homeShopkeeper/homeShopkeeper.wxss */
+
+page {
+  height: 100%;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.bottom_div {
+  width: 100%;
+  position: absolute;
+  bottom: 780rpx;
+  left: 0rpx;
+  z-index: 100;
+}
+
+.bottom {
+  position: relative;
+  margin: 40rpx;
+}
+
+.title {
+  width: 300rpx;
+  position: absolute;
+  top: -2rpx;
+  left: 50%;
+  z-index: 300;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.title image{
+  width: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.title text{
+  width: 100%;
+  line-height: 58rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  position: absolute;
+  top: 0rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 400;
+}
+
+.content_div {
+  position: absolute;
+  top: 40rpx;
+  left: 0;
+  z-index: 200;
+  background: #fff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  text-align: center;
+}
+
+.content_div .user_list {
+  overflow: hidden;
+  margin: 30rpx 0;
+}
+
+.content_div .item {
+  width: 20%;
+  text-align: center;
+  float: left;
+}
+
+.content_div .user_bg {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  background: #eaeff8;
+  border: 2rpx solid #4a9bf7;
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.content_div .user_bg image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.content_div .btn {
+  background: #f9ac00;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  padding: 10rpx 40rpx;
+  border-radius: 40rpx;
+}
+
+.content_div .tip_div {
+  display: inline-block;
+  overflow: hidden;
+  margin: 40rpx 0 20rpx 0;
+}
+
+.content_div .tip_div image {
+  width: 50rpx;
+  float: left;
+}
+
+.content_div .tip_div text {
+  color: #7e889d;
+  font-size: 30rpx;
+  margin: 0 10rpx;
+  float: left;
+  line-height: 40rpx;
+}
+.content_div .sale_div{
+  display: flex;
+  overflow: hidden;
+  margin: 0 60rpx;
+}
+.content_div .sale_div .item{
+  flex: 1;
+  text-align: center;
+}
+.content_div .sale_div .item image{
+  width: 80rpx;
+  height: 80rpx;
+}
+.content_div .sale_div .item text{
+  font-size: 28rpx;
+  color: #9BA9C5;
+  display: block;
+  text-align: center;
+}

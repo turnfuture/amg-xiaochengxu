@@ -1,0 +1,21 @@
+var getTags = function (tag) {
+  var a = tag.split(",");
+  //  return (a[a.length - 2]);
+  return a;
+}
+module.exports = {
+  getTags: getTags,
+}
+
+
+
+//取 ?id=后面所有字符串
+// var getTags = function (tag) {
+//   var rep1 = getRegExp('\.(.*)', 'i');
+//   var code1 = tag.match(rep1)[1];
+//    return code1
+
+// }
+// module.exports = {
+//   getTags: getTags,
+// }

@@ -1,0 +1,58 @@
+/* pages/tixian/tixian.wxss */
+
+.item {
+  width: 90%;
+  padding: 20rpx 5%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.itemLeft {
+  display: flex;
+}
+
+.itemLeft image {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.itemLeft text {
+  display: block;
+  font-size: 28rpx;
+  color: #9c9c9c;
+}
+
+.itemLeft text:first-child {
+  font-size: 32rpx;
+  color: #333;
+}
+
+.itemRight {
+  font-size: 32rpx;
+  color: #970407;
+}
+
+/* 提现状态 */
+
+.txNow, .txAgree, .txRefuse {
+  width: 200rpx;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 70rpx;
+  height: 70rpx;
+}
+
+.txNow {
+  color: #fdd575;
+}
+
+.txAgree {
+  color: #7cd27c;
+}
+
+.txRefuse {
+  color: #fd7575;
+}

@@ -1,0 +1,402 @@
+/* pages/order/order.wxss */
+@import "/font/font.wxss";
+
+.perSon, .address {
+  width: 94%;
+  margin: 0 auto;
+  color: #313131;
+}
+
+.perSon {
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  margin: 20rpx auto;
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10rpx;
+  overflow: hidden;
+  padding: 20rpx;
+  margin-bottom: -24rpx;
+}
+
+.address .left {
+  width: 38rpx;
+  height: 50rpx;
+  flex-shrink: 0;
+}
+
+.address .address_msg {
+  flex-grow: 1;
+  margin: 0 20rpx;
+}
+
+.address .address_msg .top {
+  overflow: hidden;
+  display: flex;
+}
+
+.address .address_msg .msg, .address .address_msg .top text {
+  color: #333;
+  font-size: 30rpx;
+}
+
+.address .address_msg .top text.name {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.address .address_msg .top text.phone {
+  flex-shrink: 0;
+}
+
+.address .address_msg .msg {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.address .iconfont {
+  font-size: 30rpx;
+  color: #333;
+  flex-shrink: 0;
+}
+
+.line {
+  width: 100%;
+  height: 5rpx;
+}
+
+/* 今日主推 */
+
+.content {
+  display: flex;
+  font-size: 26rpx;
+  padding: 15rpx 29rpx;
+  border-bottom: 1rpx solid #eee;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content image {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.content>view {
+  flex-grow: 1;
+  overflow: hidden;
+  font-size: 28rpx;
+}
+
+.content  text {
+  display: inline-block;
+}
+
+.goodSname {
+  font-size: 32rpx;
+  color: #1b1b1b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.content .price {
+  margin-top: 20rpx;
+  font-size: 24rpx;
+  color: #434343;
+  position: relative;
+}
+
+.stock {
+  margin: 20rpx 0;
+  font-size: 26rpx;
+  color: #e31537;
+}
+
+.stock1 {
+  font-size: 32rpx;
+  color: #e31537;
+}
+.goShop {
+  color: #434343;
+  font-size: 24rpx;
+  padding-left: 20rpx;
+}
+
+.content>view {
+  position: relative;
+}
+
+.name {
+  height: 60rpx;
+}
+
+.num01, .num02 {
+  font-weight: bold;
+}
+
+.num01 {
+  font-size: 28rpx;
+}
+
+.shopTotal {
+  font-size: 30rpx;
+  color: #e31537;
+  text-align: right;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 15rpx solid #f4f4f4;
+  padding-right: 39rpx;
+}
+
+.shopNum {
+  color: #313131;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 39rpx;
+  padding-right: 39rpx;
+  font-size: 30rpx;
+  color: #313131;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.message {
+  display: flex;
+  padding-top: 30rpx;
+  padding-left: 39rpx;
+  margin-bottom: 200rpx;
+  /* background: red; */
+}
+
+.message text {
+  font-size: 30rpx;
+  flex: 2;
+}
+
+.message textarea {
+  height: 200rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding: 10rpx;
+  flex: 6;
+}
+
+.lastView {
+  width: 100%;
+  font-size: 28rpx;
+  color: #313131;
+  background: white;
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  flex-direction: row-reverse;
+}
+.lastView cover-view{
+  line-height: 100rpx;
+}
+.lastView .coLor {
+  color: #e31537;
+}
+
+.lastView .money {
+  font-size: 30rpx;
+  color: #e31537;
+  margin-right: 20rpx;
+}
+
+.lastView .order {
+  font-size: 32rpx;
+  background: #e31537;
+  color: white;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.lastView text {
+  display: inline;
+}
+
+.money {
+  color: #f00;
+  font-size: 32rpx;
+}
+
+/* 添加地址 */
+
+.addSite {
+  text-align: center;
+  align-items: center;
+  padding-top: 30rpx;
+}
+
+.addSite icon {
+  font-size: 86rpx;
+  vertical-align: middle;
+}
+
+.addSite text {
+  font-size: 26rpx;
+  display: inline-block;
+  line-height: 60rpx;
+  margin-left: 10px;
+}
+
+/* 新加 */
+
+.newPrice {
+  display: flex;
+}
+
+/* 优惠券遮罩 */
+
+.couponContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.couponContent .orderCoupon {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 800rpx;
+  background: #fff;
+}
+
+.couponContent .orderCoupon .couponTitle {
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 20rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #eee;
+  position: relative;
+}
+
+.orderCoupon .couponTitle .clearCoupon {
+  position: absolute;
+  right: 20rpx;
+  top: 15rpx;
+}
+
+.couponContent .orderCoupon .couponList {
+  width: 100%;
+  height: 720rpx;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+.couponList .coupon_div{
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.orderCoupon .couponList .couponItem {
+  position: relative;
+  height: 190rpx;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.couponList .couponItem .couponMoney {
+  padding-top: 10rpx;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+.couponList .couponItem .couponMoney .money {
+  width: 200rpx;
+  font-size: 40rpx;
+  color: white;
+}
+
+.couponList .orange {
+  position: absolute;
+  right: 50rpx;
+  top: 50rpx;
+  z-index: 1001;
+  color: #e31537;
+  font-size: 40rpx;
+}
+
+.couponList .couponItem .couponTime {
+  flex: 7;
+  padding-top: 20rpx;
+  padding-left: 50rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.couponItem .couponTime .name {
+  font-size: 40rpx;
+  color: #ee3334;
+}
+
+.couponItem .couponTime .time {
+  font-size: 24rpx;
+  color: #a0a0a0;
+}
+
+.sureCouponBtn {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  background: #e53935;
+  color: #fff;
+  font-size: 32rpx;
+}
+
+.orderCoupon .couponList .hongbao {
+  position: absolute;
+  width: 710rpx;
+  height: 100%;
+}
+
+.lastView .lines {
+  height: 100rpx;
+  background: #f4f4f4;
+  width: 100%;
+}
+
+.alls {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 2rpx solid #eaeaea;
+}
+
+.order {
+  padding: 30rpx auto;
+}

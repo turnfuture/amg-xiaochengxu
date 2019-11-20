@@ -1,0 +1,26 @@
+<scroll-view scroll-x='ture' class="gundong" scroll-into-view="{{'time'+timeCur}}">
+  <block wx:for='{{getTime}}' wx:key="{{index}}">
+    <view class="before {{timeCur==index?'active':''}}" data-timeid="{{item.timeId}}" data-ans="{{aNs}}" id="{{'time'+index}}" data-index="{{index}}" bindtap="miaosha">
+      <text class="">{{item.startTime}}-{{item.endTime}}</text>
+      <view>{{item.ans}}</view>
+    </view>
+  </block>
+</scroll-view>
+<image  class="adverImg" src="{{adverImg}}" mode="widthFix"></image>
+<!-- 商品 -->
+<view class="good_list">
+  <view wx:if="{{goodsTime.length>0}}" class="good" wx:for="{{goodsTime}}" wx:key="{{index}}" bindtap="msxq" data-id="{{item.id}}">
+    <image src="{{item.imgurl}}" class="aimg" mode="aspectFill"></image>
+    <view class="gright">
+      <view class="name">{{item.name}}</view>
+      <view class="yi">已秒杀：{{item.num_sale}}</view>
+      <view class="bottom">
+        <text class="now">￥{{item.newPrice}}</text>
+        <text class="before">￥{{item.oldPrice}}</text>
+        <text class="kj">去秒杀</text>
+      </view>
+      
+    </view>
+  </view>
+  <view wx:if="{{goodsTime.length==0}}" class="empty_div">该时间段下暂无商品</view>
+</view>

@@ -1,0 +1,122 @@
+/* pages/addAress/addAress.wxss */
+@import "../../font/font";
+
+.flexRowBetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flexRowBetween1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexColumnBetween {
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.input_note {
+  width: 23%;
+  color: #363636;
+  font-size: 28rpx;
+  line-height: 90rpx;
+}
+
+.users_detail {
+  width: 100%;
+  align-items: center;
+}
+
+.address_right .icon-you {
+  margin-left: 8rpx;
+}
+
+.icon-you {
+  color: #ccc;
+}
+
+.user_input {
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: solid 1px #e0e0e0;
+  padding: 0px 25rpx;
+  align-items: center;
+}
+
+.user_input input {
+  height: 28rpx;
+  line-height: 28rpx;
+  color: #000;
+  font-size: 28rpx;
+  width: 77%;
+}
+
+.user_input image {
+  width: 11rpx;
+  height: 20rpx;
+}
+
+.address_right text {
+  color: #b2b2b2;
+  font-size: 28rpx;
+}
+
+.address_right image {
+  margin-left: 15rpx;
+}
+
+.address_set {
+  width: 200rpx;
+}
+
+.submit_info {
+  /* position: absolute; */
+  position: fixde;
+  bottom: 100rpx;
+  margin: 0rpx 25rpx;
+  width: 700rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  background: #970407;
+  border-radius: 10rpx;
+  margin-top: 260rpx;
+}
+
+.userAddress {
+  width: 90%;
+  min-height: 200rpx;
+  border-bottom: solid 1px #e0e0e0;
+  padding: 0px 25rpx;
+  display: flex;
+  background: #eeeeee;
+  margin: 50rpx auto 25rpx;
+}
+
+.userAddress .input_note {
+  width: 23%;
+}
+
+.userAddress .area {
+  padding-top: 30rpx;
+  width: 77%;
+  height: 200rpx;
+  font-size: 28rpx;
+}
+.section {
+  line-height: 90rpx;
+  height: 90rpx;
+  border-bottom: solid 1px #e0e0e0;
+  padding: 0px 25rpx;
+  justify-content: space-between;
+  display: flex;
+
+}
+.section .picker {
+  font-size: 28rpx;
+  color: #363636;
+}

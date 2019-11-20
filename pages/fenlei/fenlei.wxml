@@ -1,0 +1,30 @@
+<!--pages/fenlei/fenlei.wxml-->
+<view class='fSearch' bindtap="search">
+    <icon type='search' size='15'></icon>
+    <input placeholder="输入商品名称" placeholder-class="plaColor"></input>
+  </view>
+<scroll-view class='itemLeft' scroll-x="true" scroll-into-view="{{'cate'+navActive}}">
+  <view class="{{index==navActive?'active':''}}" wx:for="{{category}}" wx:key="{{item}}" data-index="{{index}}" data-id="{{item.id}}" bindtap="tap" id="{{'cate'+index}}">
+    <text>{{item.name}}</text>
+  </view>
+  
+</scroll-view>
+<view class="itemRight" id="itemRight">
+<scroll-view scroll-y="true" style='height:{{scroll_height}}px' bindscrolltolower="loadMore">
+  <!-- 商品 -->
+  <view class='goodsBox'>
+    <view wx:if="{{goodList.length>0}}" class='fGoods' wx:for="{{goodList}}" wx:for-item="item" wx:key="{{index}}" data-id='{{item.id}}' bindtap='list'>
+      <view class="img">
+        <image class='' src='{{item.imgurl}}' mode="aspectFill"></image>
+      </view>
+      <view class='name'>{{item.name}}</view>
+      <view class="price">¥{{item.price}}</view>
+    </view>
+  </view>
+  <view class="empty_div" style="width:100%;" wx:if="{{goodList.length==0}}">该分类下暂无商品</view>
+
+</scroll-view>
+</view>
+<view style="height:120rpx;background: transparent"></view>
+<tab-bar selected="1"></tab-bar>
+<view class="newTab"></view>

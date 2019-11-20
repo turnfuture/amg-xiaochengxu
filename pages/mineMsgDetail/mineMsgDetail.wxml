@@ -1,0 +1,6 @@
+<!--pages/mineMsgDetail/mineMsgDetail.wxml-->
+<view class="msg_div">
+  <view class="title">{{msg.title}}</view>
+<view class="time">{{msg.createAt}}</view>
+<rich-text nodes="{{msg.content}}"></rich-text>
+</view>

@@ -1,0 +1,105 @@
+<!--pages/addAress/addAress.wxml-->
+<!-- 编辑收货地址 -->
+<view wx:if="{{addressId!=''}}">
+  <!-- 收货人 -->
+  <view class="user_input">
+    <view class="users_detail flexRowBetween">
+      <view class="input_note">收货人:</view>
+      <input bindinput="getName" maxlength="11" placeholder="请输入收货人" value="{{userName}}">
+      </input>
+      <!-- <view class="next_page" style="width:5%;float:right;">
+        <icon class="iconfont icon-jiantou" role="img">
+        </icon>
+      </view> -->
+    </view>
+  </view>
+  <!-- 手机号 -->
+  <view class="user_input">
+    <view class="users_detail flexRowBetween">
+      <view class="input_note">手机号码:</view>
+      <input bindinput="getPhone" maxlength="11" placeholder="请输入手机号码" type="number" value="{{phone}}">
+      </input>
+      <view class="address_right">
+        <text>+86</text>
+        <icon class="iconfont icon-you" role="img"></icon>
+      </view>
+    </view>
+  </view>
+  <!-- 所在地区 -->
+  <view class="section">
+    <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker">
+        所在地区：{{region[0]}}，{{region[1]}}，{{region[2]}}
+      </view>
+    </picker>
+    <icon class="iconfont icon-jiantou"></icon>
+  </view>
+  <!-- 详细地址 -->
+  <view class="userAddress">
+    <view class="input_note">详细地址:</view>
+    <textarea placeholder="如街道，门牌号" class='area' maxlength='80' bindinput="getdetail" value="{{detail}}"></textarea>
+  </view>
+  <!-- 默认地址 -->
+  <view class="user_input flexRowBetween">
+    <view class="input_note address_set">设为默认地址</view>
+    <view class="body-view">
+      <switch bindchange="switch2Change" checked='{{switch == 0}}' color='#970407' />
+    </view>
+  </view>
+  <!-- 保存 -->
+  <view class="submit_info" bindtap="backAddress">
+    保存
+  </view>
+</view>
+<!-- 复制 -->
+<!-- 增加收货地址 -->
+<view wx:if="{{addressId===''}}">
+  <view class="user_input">
+    <view class="users_detail flexRowBetween">
+      <view class="input_note">收货人:</view>
+      <input maxlength="10" placeholder="请输入收货人" bindinput="getName" value="{{userName}}"> 请输入收货人
+      </input>
+      <!-- <view class="next_page" style="width:5%;float:right;">
+        <icon class="iconfont icon-jiantou" role="img">
+        </icon>
+      </view> -->
+    </view>
+  </view>
+  <!-- 手机号 -->
+  <view class="user_input">
+    <view class="users_detail flexRowBetween">
+      <view class="input_note">手机号码:</view>
+      <input maxlength="11" placeholder="请输入手机号码"  type="number" bindinput="getPhone" value='{{phone}}'> 请输入手机号码
+      </input>
+      <view class="address_right">
+        <text>+86</text>
+        <icon class="iconfont icon-you" role="img"></icon>
+      </view>
+    </view>
+  </view>
+  <!-- 所在地区 -->
+  <view class="section">
+    <picker style="width:100%;" mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+      <view class="picker" data-addCity="{{region[0]}}，{{region[1]}}，{{region[2]}}">
+        所在地区：{{region[0]}}{{region[1]}}{{region[2]}}
+      </view>
+    </picker>
+    <icon class="iconfont icon-jiantou"></icon>
+  </view>
+  <!-- 详细地址 -->
+  <view class="userAddress">
+    <view class="input_note">详细地址:</view>
+    <textarea placeholder="如街道，门牌号" class='area' maxlength='80' bindinput="getdetail" value="{{detail}}"></textarea>
+  </view>
+  <!-- 默认地址 -->
+  <view class="user_input flexRowBetween">
+    <view class="input_note address_set">设为默认地址</view>
+    <view class="body-view">
+      <switch bindchange="switch2Change" checked='{{switch == 0}}' color='#970407' />
+    </view>
+  </view>
+  <!-- 保存 -->
+  <view class="submit_info" bindtap="addRess">
+    保存
+  </view>
+</view>

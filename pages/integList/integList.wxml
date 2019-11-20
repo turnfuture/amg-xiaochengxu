@@ -1,0 +1,20 @@
+<!--pages/integList/integList.wxml-->
+<!-- <image class="adverImg" src="{{adverImg}}" mode="widthFix"></image> -->
+<view class="list_div">
+  <block wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="list_item" data-id="{{item.id}}" bindtap="toDetail">
+      <image class="item_left" src="{{item.imgurl}}" mode="aspectFill"></image>
+      <view class="item_right">
+        <view class="name">{{item.name}}</view>
+        <view class="num">已抢:{{item.num_sale}}</view>
+        <view class="money">
+        积分价:¥<text class="price">{{item.newPrice}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+  <view class="empty_div" wx:if="{{list.length==0}}">暂无积分商品</view>
+</view>
+
+
+

@@ -1,0 +1,69 @@
+<!--pages/myOrder/myOrder.wxml-->
+<wxs src='../../utils/money.wxs' module="numberUtil" />
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+<view current="{{currtab}}" class="swiper-box" duration="300">
+  <scroll-view scroll-y="true" wx:if="{{alreadyOrder.length > 0}}">
+    <block wx:for="{{alreadyOrder}}" wx:key="{{index}}" wx:for-item="item">
+      <view class="oderbox">
+        <view class='perSon'>
+          <text>订单号：{{item.order_sn}}</text>
+          <text wx:if="{{item.status==0}}">砍价中</text>
+          <text wx:elif="{{item.status==1}}">待支付</text>
+          <text wx:elif="{{item.status==2}}">拼团中</text>
+          <text wx:elif="{{item.status==3}}">待发货</text>
+          <text wx:elif="{{item.status==4}}">待收货</text>
+          <text wx:elif="{{item.status==5}}">退货中</text>
+          <text wx:elif="{{item.status==6}}">退货成功</text>
+          <text wx:elif="{{item.status==7&&!item.coment}}">待评价</text>
+          <text wx:elif="{{item.status==7&&item.coment}}">已完成</text>
+          <text wx:elif="{{item.status==8}}">订单取消</text>
+          <text wx:elif="{{item.status==9}}">砍价失败</text>
+          <text wx:elif="{{item.status==10}}">拼团失败</text>
+        </view>
+
+        <view class='content' wx:for="{{item.detailList}}" wx:for-item="list" wx:key="{{index}}" data-id="{{item.id}}" bindtap='orderDetails'>
+          <image src='{{list.imgurl}}' mode="aspectFill"></image>
+          <view>
+            <text class='goodSname'>{{list.goodName}}</text>
+            <view class='price'>
+              <text wx:if="{{list.spec}}">规格：{{list.spec}}</text>
+              <view class="goShop">x{{list.total}}</view>
+            </view>
+            <text class='stock'>￥</text>
+            <text class='stock1'>{{list.price}}</text>
+          </view>
+        </view>
+        <view>
+        </view>
+        <view class='shopTotal'>
+          <text class='shopNum'>总共{{item.allTotal}}件商品：￥</text>
+          <text class='shopPrice'>{{item.payment}}</text>
+        </view>
+        <view class='orderBtn' wx:if="{{item.status == 1}}">
+          <text data-id='{{item.id}}' data-index='{{index}}' bindtap='delOrder'>取消订单</text>
+          <text bindtap='toPay' data-id="{{item.id}}" data-index='{{index}}'>去支付</text>
+        </view>
+        
+        <view class='orderBtn' wx:if="{{item.status == 4}}">
+          <text class='changeOrder' bindtap='returnGood' data-id="{{item.id}}" data-index='{{index}}'>退货</text>
+          <text class='changeOrder' bindtap='logistics' data-id="{{item.id}}" data-index='{{index}}'>查看物流</text>
+          <text class='receivingGoods' bindtap='receiving' data-id='{{item.id}}'>确认收货</text>
+        </view>
+        <view class='orderBtn' wx:if="{{item.status == 7&&item.coment}}">
+          <text class='valuate' data-id="{{item.id}}" bindtap='reMove'>删除订单</text>
+        </view>
+        <view class='orderBtn' data-id="{{item.id}}" catchtap='goComment' wx-if="{{item.status==7&&!item.coment}}">
+          <text>去评价</text>
+        </view>
+      </view>
+     
+ 
+    </block>
+  </scroll-view>
+  <view class="empty_div" wx:if="{{alreadyOrder.length == 0}}">暂时没有该类型订单~</view>
+
+</view>

@@ -1,0 +1,36 @@
+/* pages/retuGoods/retuGoods.wxss */
+
+input {
+  width: 95%;
+  border-bottom: 1rpx solid #eee;
+  font-size: 28rpx;
+  color: #333;
+  padding: 15rpx 5%;
+}
+
+.tx, .button-hover[type=warn] {
+  color: white;
+  width: 90%;
+  margin: 120rpx auto 40rpx;
+}
+
+.conts {
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+textarea {
+  width: 687rpx;
+}
+
+.areas {
+  height: 200rpx;
+  font-size: 30rpx;
+  padding-top: 30rpx;
+  margin: 80rpx auto;
+  overflow: hidden;
+  position: relative;
+  background: #f4f4f4;
+  padding-left: 10rpx;
+}

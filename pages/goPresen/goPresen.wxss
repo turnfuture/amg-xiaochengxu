@@ -1,0 +1,35 @@
+/* pages/goPresen/goPresen.wxss */
+@import "/font/font.wxss";
+input{
+  width: 95%;
+  border-bottom: 1rpx solid #EEEEEE;
+  font-size: 30rpx;
+  /* color: #A0A0A0; */
+  padding:15rpx 5%;
+}
+.mode {
+  width: 90%;
+  margin: 30rpx auto;
+}
+.mode .icon-xuanzhong{
+  color: #7cd27c;
+}
+.mode image{
+  margin-left: 30rpx;
+  width: 200rpx;
+  /* height: 100rpx; */
+  vertical-align: middle;
+
+}
+.tx,.button-hover[type=warn]{
+ 
+  color: white;
+  width: 90%;
+  margin: 120rpx auto 40rpx;
+}
+.account_div{
+  padding:15rpx 5%;
+  border-bottom: 2rpx solid #eee;
+  color: #333;
+  font-size: 30rpx;
+}

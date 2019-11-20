@@ -1,0 +1,50 @@
+<!--pages/orderxqInteg/orderxqInteg.wxml-->
+<wxs src='../../utils/money.wxs' module="numberUtil" />
+<wxs src='../../utils/state.wxs' module='filters' /> 
+<!-- 收货人信息 -->
+<view class='address'>
+  <image class="left" src='../../images/address.png' mode="widthFix"></image>
+  <view class="address_msg">
+    <view class="top">
+      <text class="name">收货人：{{orderDetails.receiver_name}}</text>
+      <text class="phone">{{orderDetails.receiver_phone}}</text>
+    </view>
+    <view class="msg">{{orderDetails.receiver_province}}{{orderDetails.receiver_city}}{{orderDetails.receiver_county}}{{orderDetails.receiver_address}}</view>
+  </view>
+</view>
+<image src='../../images/line.png' class='line'></image>
+
+<!-- 订单物品 -->
+<view class='content' wx:for="{{orderDetails.goodsList}}" wx:key="{{index}}">
+  <image src='{{item.imgurl}}'></image>
+  <view>
+    <text class='goodSname'>{{item.goodsName}}</text>
+    <view class='price'>
+      <text wx:if='{{item.spec}}'>规格：{{item.spec}}</text>
+      <view class="goShop">
+        x{{item.total}}
+      </view>
+    </view>
+    <view class="bottom">
+      <text class='stock'>积分价￥<text class='stock1'>{{item.goodsPrice}}</text></text>
+    
+    </view>
+  </view>
+</view>
+<!-- 订单总价 -->
+<view class='shopTotal'>
+  <text class='shopNum'>总共1件商品：</text> 积分价:￥
+  <text class='shopPrice'>{{orderDetails.goodsAllPrice}}</text>
+</view>
+
+
+
+<!-- 订单状态 -->
+<view class="state ">订单状态：{{orderDetails.status==0?'待发货':item.status==1?'兑换成功':'兑换失败'}}</view>
+<view class="orderNum">订单编号：{{orderDetails.order_sn}}</view>
+<view class="orderNum">留言信息：{{orderDetails.buyer_msg?orderDetails.buyer_msg:'无'}}</view>
+<view class="orderNum">创建时间：{{orderDetails.create_at}}</view>
+
+<view class="bottom_div">
+  <button class="service" open-type="contact">联系客服</button>
+</view>

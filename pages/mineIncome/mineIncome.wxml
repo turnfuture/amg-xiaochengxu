@@ -1,0 +1,26 @@
+<!--pages/mineIncome/mineIncome.wxml-->
+<view class="integ_top">
+  <view class="integ_div">
+    <image src="/images/income_bg.png"></image>
+    <view class="integ_num">
+      <view class="txt">积分总额</view>
+      <view class="num">{{income}}</view>
+    </view>
+  </view>
+</view>
+<!-- 收益记录 -->
+<view class="title">积分记录</view>
+<view class="integ_list" wx:if="{{incomeList.length>0}}">
+  <block wx:for="{{incomeList}}" wx:key="{{index}}">
+    <view class="integ_item">
+      <view class="integ_left">
+        <view class="type">{{item.type==0?'消费返利':'积分商城消费'}}</view>
+        <view class="time">{{item.create_at}}</view>
+      </view>
+      <view class="integ_right">
+        <text>{{(item.type==0?'+':'-')+item.money}}</text>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="empty_div" wx:else>暂无数据</view>

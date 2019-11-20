@@ -1,0 +1,215 @@
+<!--pages/xiangqing/xiangqing.wxml-->
+<view>
+  <!-- 轮播图 -->
+  <view class="banner_div">
+    <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="5000" duration="{{duration}}" indicator-color='rgba(0, 0, 0, .3)' indicator-active-color='#000000'>
+      <block wx:for="{{banners}}" wx:key="{{index}}">
+        <swiper-item>
+          <image mode='aspectFill' src="{{item}}" class="slide-image" style='width:100%;height:100%;' />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 秒杀商品倒计时 -->
+  <view wx:if="{{type==1}}" class="good_count">
+    <view class="count_div" wx:if="{{!isStart}}">
+      <text class="count_colon">秒杀活动还未开始</text>
+    </view>
+    <view class="count_div" wx:if="{{isStart&&!isFinish}}">
+      <text class="count_colon">倒计时</text>
+      <text class='count_conutdown'>{{countDown.hou}}</text>
+      <text class="count_colon">:</text>
+      <text class='count_conutdown'>{{countDown.min}}</text>
+      <text class="count_colon">:</text>
+      <text class='count_conutdown'>{{countDown.sec}}</text>
+    </view>
+    <view class="count_div" wx:if="{{isFinish}}">
+      <text class="count_colon">秒杀活动已结束</text>
+    </view>
+  </view>
+
+  <!-- 商品 -->
+  <view class='biaoti'>
+    <view class='name'>{{name}}</view>
+    <!-- <view class='division'></view> -->
+    <button class="service" open-type="contact">
+      <icon class='iconfont icon-zaixiankefu'></icon>
+      <text>客服</text>
+    </button>
+  </view>
+  <view class='price'>
+    <text><text style="font-size:28rpx;" wx:if="{{type==4}}">积分价:</text>￥{{price}}</text>
+    <text wx:if="{{type!=0}}" class="orignal">￥{{priceOrignal}}</text>
+  </view>
+  <!-- 快递费，月销，库存 -->
+  <view class='item'>
+    <text>快递费：{{type==4?'包邮':goodDetail.postFee}}</text>
+    <text>月销：{{goodDetail.numSale}}</text>
+    <text>库存：{{goodDetail.stock}}</text>
+  </view>
+  
+  <!-- 颜色分类 -->
+  <view class='coLor' catchtap="showview">
+    <text>选择颜色分类</text>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
+  <!-- 产品参数 -->
+  <view class='coLor' catchtap="showProParams">
+    <text>产品参数</text>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
+
+  <view class='line'>
+  </view>
+  <!-- 商品详情 -->
+  <view class="seipers">
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab=='0'?'active':''}}" data-type="0" bindtap="change">商品详情</view>
+      <view class="swiper-tab-item {{currentTab=='1'?'active':''}}" data-type="1" bindtap="change">推荐商品</view>
+      <view wx:if="{{type!=4}}" class="swiper-tab-item {{currentTab=='2'?'active':''}}" data-type="2" bindtap="change">评价（{{goodDetail.comentSize}}）</view>
+    </view>
+
+    <view class="xaImg" wx:if="{{currentTab == '0'}}">
+      <block wx:for="{{goodDetail.goodsImg}}" wx:key="{{index}}">
+        <image src="{{item}}" style="width:100%;" mode="widthFix"></image>
+      </block>
+    </view>
+    <view class='activity jiu' wx:elif="{{currentTab == '1'}}">
+      <view class='actGoods' wx:if="{{list.length>0}}">
+        <view class='goodsList' wx:for="{{list}}" wx:key="{{index}}" bindtap="tjxq" data-id="{{item.id}}">
+          <view class="img">
+            <image src='{{item.imgurl}}' mode="aspectFill"></image>
+          </view>
+          <text class="name">{{item.name}}</text>
+          <view class="low">
+            ￥{{item.price}}
+          </view>
+        </view>
+      </view>
+      <view class="empty_div" wx:if="{{list.length==0}}">暂无推荐商品</view>
+    </view>
+    <!-- 评论 -->
+    <view wx:elif="{{currentTab == '2'}}">
+      <view class="evaluate_div">
+        <block wx:if="{{evaluateList.length>0}}" wx:for="{{evaluateList}}" wx:key="{{index}}">
+          <view class="evaluate_item">
+            <view class="user_msg">
+              <image mode="aspectFill" class="img" src="{{item.avator}}"></image>
+              <view class="user_right">
+                <view class="msg">
+                  <text class="name">{{item.name}}</text>
+                  <text class="time">{{item.create_at}}</text>
+                </view>
+                <view class="start">
+                  <text class="iconfont icon-star-fill {{item.star>0?'sel':''}}"></text>
+                  <text class="iconfont icon-star-fill {{item.star>1?'sel':''}}"></text>
+                  <text class="iconfont icon-star-fill {{item.star>2?'sel':''}}"></text>
+                  <text class="iconfont icon-star-fill {{item.star>3?'sel':''}}"></text>
+                  <text class="iconfont icon-star-fill {{item.star>4?'sel':''}}"></text>
+                </view>
+              </view>
+            </view>
+            <view class="evalute_content">{{item.content}}</view>
+            <view class="imgs">
+              <view class="img_item" wx:for="{{item.imgList}}" wx:key="{{index}}" wx:for-item="img">
+                <image mode="aspectFill" src="{{img}}"></image>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class="empty_div" wx:if="{{evaluateList.length==0}}">暂无评价</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+  <view class='fooTer'>
+    <view class='coller' bindtap="collection" wx:if="{{!isfollow}}">
+      <icon class='iconfont icon-shoucang1' style='color:{{color}}'></icon>
+      <text style="color:{{color}}" bindtap="collection">收藏</text>
+    </view>
+    <view class='coller' bindtap="collection" wx:elif="{{isfollow}}">
+      <icon class='iconfont icon-shoucang1' style='color:{{color}}'></icon>
+      <text style="color:#dd191d" bindtap="collection">已收藏</text>
+    </view>
+    <view class='coller' bindtap="goShop">
+      <icon class='iconfont icon-car' style='color:#333'></icon>
+      <text>购物车</text>
+    </view>
+    <view class="fooBtn">
+      <!-- 加入购物车 -->
+      <text wx:if="{{type==0}}" class='shopCar' bindtap='showview'>加入购物车     </text>
+      <!-- 立即购买 -->
+      <text class='buy' bindtap='showview'>立即购买</text>
+    </view>
+  </view>
+</view>
+
+<!-- 产品规格弹窗 -->
+<view class="mask" catchtouchmove="return" style="{{heidde?'display:block;':'display:none'}}">
+  <view class="maskBg" bindtap="hideview"></view>
+  <!-- 商品图片，价格，已选 -->
+  <view class="maskCont">
+    <view class='colorClass'>
+      <image src="{{productInfo.icon}}"></image>
+      <view class='guige'>
+        <text class="price">￥{{productInfo.price}}</text>
+        <view wx:if="{{productInfo.name}}">已选：“{{productInfo.name}}”</view>
+        <view class="kucun">库存：{{productInfo.stock}}</view>
+      </view>
+      <icon class='iconfont icon-guanbi' catchtap='hideview'></icon>
+    </view>
+    <!-- 颜色分类 -->
+    <view class='color' wx:for="{{skus}}" wx:key="{{index}}" wx:for-index="dataListindex" wx:for-item="item">
+      <text>{{item.spec_name}}</text>
+      <view class='colorBtn'>
+        <text class="skuItem {{moSku[dataListindex] == item_val.spec_value_name?'skuActive': ''}}" wx:for="{{item.spec_values}}" wx:key="{{index}}" wx:for-item="item_val" bindtap='skuItem' data-index="{{index}}" data-idx='{{dataListindex}}'>{{item_val.spec_value_name}}</text>
+      </view>
+    </view>
+    <!-- 购买数量 -->
+    <view class='numBer'>
+      <text>购买数量</text>
+      <view>
+        <!-- 砍价商品/积分商品一次只可购买一件 -->
+        <text wx:if="{{type==0}}" class='redu' bindtap="down">—</text>
+        <text wx:if="{{type==1}}" class='redu' bindtap="down">—</text>
+        <text wx:if="{{type==2}}" class='redu' bindtap="down">—</text>
+        <text wx:if="{{type==5}}" class='redu' bindtap="down">—</text>
+        <text class='num'>{{payNum}}</text>
+        <text wx:if="{{type==0}}" class='add' bindtap="up">+</text>
+        <text wx:if="{{type==1}}" class='add' bindtap="up">+</text>
+        <text wx:if="{{type==2}}" class='add' bindtap="up">+</text>
+        <text wx:if="{{type==5}}" class='add' bindtap="up">+</text>
+      </view>
+    </view>
+    <!-- 确定按钮 -->
+    <view class='sure'>
+      <view wx:if="{{type==0}}" data-id="{{productInfo.id}}" catchtap="addCart">加入购物车</view>
+      <view data-id="{{productInfo.id}}" catchtap="toBuy">立即购买</view>
+    </view>
+  </view>
+</view>
+
+<!-- 产品参数弹窗 -->
+<view class="mask params" catchtouchmove="return" wx:if="{{isShowParams}}">
+  <view class="maskBg" bindtap="hideProParams"></view>
+  <view class="maskCont maskParams">
+    <icon class='iconfont icon-guanbi' catchtap='hideProParams'></icon>
+    <view class="params_div" wx:if="{{proParams.length>0}}">
+      <scroll-view scroll-y>
+        <block wx:for="{{proParams}}" wx:key="{{index}}">
+          <view class="params_item">
+            <view class="params_title">{{item.name}}</view>
+            <block wx:for="{{item.value}}" wx:key="{{index}}" wx:for-item="itemName">
+              <view class="params_value">
+                <text>{{itemName.name}}</text>
+                <text>{{itemName.value}}</text>
+              </view>
+            </block>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+    <view class="empty_div" wx:else>暂无产品参数</view>
+  </view>
+</view>

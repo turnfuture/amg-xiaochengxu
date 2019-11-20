@@ -1,0 +1,60 @@
+<!--pages/mineBarginShare/mineBarginShare.wxml-->
+<image class="bg" src="../../images/bg_bargain.png" mode="aspectFill	"></image>
+<view class="content_div">
+  <view class="content_msg">
+    <view class="top_div">
+      <view class="list_item">
+        <image class="item_left" src="{{detail.imgurl}}" mode="aspectFill"></image>
+        <view class="item_right">
+          <view class="name">{{detail.name}}</view>
+          <view wx:if="{{detail.status==0}}" class="time">
+            <text class="txt">距结束:</text>
+            <view class="good_count">
+              <text class='count_conutdown'>{{countDown.hou}}</text>
+              <text class="count_colon">:</text>
+              <text class='count_conutdown'>{{countDown.min}}</text>
+              <text class="count_colon">:</text>
+              <text class='count_conutdown'>{{countDown.sec}}</text>
+            </view>
+          </view>
+          <view class="money" wx:elif="{{detail.status==9}}">
+            <text class="price">{{'¥'+detail.oldPrice}}</text>
+            <text class="status">砍价失败</text>
+          </view>
+          <view class="money" wx:else>
+            <text class="price">{{'¥'+detail.oldPrice}}</text>
+            <text class="status">砍价成功</text>
+          </view>
+
+        </view>
+      </view>
+      <view class="bargin_money">
+        <view class="money">已砍{{detail.havePrice}}元，还剩{{detail.needPrice}}元</view>
+        <view class="progress">
+          <view class="have" style="width:{{progress}}%;"></view>
+        </view>
+      </view>
+      <view class="share" wx:if="{{detail.status==0}}" bindtap="toBargin">帮好友砍一刀</view>
+    </view>
+    <view class="bottom_div">
+      <view class="user_title">砍价人数（{{detail.userList.length}}）</view>
+      <view class="user_list" wx:if="{{detail.userList.length>0}}">
+        <view class="list_div">
+          <scroll-view scroll-y>
+            <block wx:for="{{detail.userList}}" wx:key="{{index}}">
+              <view class="user_item">
+                <image class="img" src="{{item.avator}}" mode="aspectFill"></image>
+                <view class="right">
+                  <view class="name">{{item.name+' 成功的砍掉'}}
+                    <text>{{item.k_price}}</text>元</view>
+                  <view class="time">{{item.create_at}}</view>
+                </view>
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="empty_div" wx:if="{{detail.userList.length==0}}">暂时无人帮您砍价</view>
+    </view>
+  </view>
+</view>

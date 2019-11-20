@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tab-bar": "/custom-tab-bar/index"
+  },
+  "navigationBarTitleText": "分类",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#dedede"
+}

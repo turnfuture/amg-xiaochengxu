@@ -1,0 +1,8 @@
+<!--pages/mineMsg/mineMsg.wxml-->
+<block wx:if="{{msgList.length>0}}" wx:for="{{msgList}}" wx:key="{{index}}">
+  <view class="msg_item" data-id="{{item.id}}" bindtap="toDetail">
+    <text>{{item.title}}</text>
+    <view class="iconfont icon-jiantou"></view>
+  </view>
+</block>
+<view class="empty_div" wx:if="{{msgList.length==0}}">暂无消息</view>
