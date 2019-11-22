@@ -51,7 +51,7 @@ Page({
         type: obj,
         pageSize: that.data.pageSize,
         pageNumber: that.data.page,
-        platformId: 0
+        platformId: 1
       },
       method: 'post',
       success: function (res) {

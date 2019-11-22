@@ -37,7 +37,8 @@ Page({
     goodId: null,
     goodName: '',
     goodInfo: null,
-    buyNum: 1
+    buyNum: 1,
+    dobclick: true
   },
 
   /**
@@ -244,6 +245,12 @@ Page({
     let _this = this;
     console.log('type', _this.data.type);
     console.log('address', _this.data.address);
+    if (!_this.data.dobclick) {
+      return false;
+    }
+    _this.setData({
+      dobclick: false
+    })
     let showNum = wx.getStorageSync('cartOrder');
     let tjmsg = _this.data.msg; //留言
     // if(tjmsg !=''){ tjmsg='' }
