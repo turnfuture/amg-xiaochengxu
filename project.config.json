@@ -47,6 +47,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
@@ -54,6 +58,13 @@
 					"id": 0,
 					"name": "pages/shopCar/shopCar",
 					"pathName": "pages/shopCar/shopCar",
+					"query": "id=aaadc1aae43949479ad7f63a7ccfd6d3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/perSoner/perSoner",
+					"pathName": "pages/perSoner/perSoner",
 					"query": "id=aaadc1aae43949479ad7f63a7ccfd6d3",
 					"scene": null
 				}

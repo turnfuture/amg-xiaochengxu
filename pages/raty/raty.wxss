@@ -1,0 +1,114 @@
+/* pages/raty/raty.wxss */
+page {
+  background: #f9f9f9;
+}
+
+.raty-item {
+  margin-bottom: 20rpx;
+  padding: 0 20rpx 20rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #eaeaea;
+}
+
+.good_div {
+  padding: 20rpx 0;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.good_div .img {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+  margin-right: 20rpx;
+}
+
+.good_div .good_right {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.good_div .name {
+  /* line-height: 50rpx; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 32rpx;
+}.good_bottom {
+  overflow: hidden;
+}
+
+.good_bottom .money {
+  float: left;
+  font-size: 26rpx;
+  line-height: 54rpx;
+}
+
+.good_bottom .money .price {
+  margin-left: 5rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.good_bottom .btn {
+  width: 160rpx;
+  line-height: 60rpx;
+  float: right;
+  font-size: 28rpx;
+  color: #D50000;
+  border-radius: 40rpx;
+  border: 2rpx solid #D50000;
+  text-align: center;
+}
+
+
+.start {
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.start .iconfont {
+  font-size: 40rpx;
+  margin-right: 10rpx;
+  color: #adadad;
+}
+
+.start .iconfont.sel {
+  color: #e83632;
+}
+
+.evalute_content {
+  color: #434343;
+  font-size: 28rpx;
+  margin: 0 0 20rpx;
+}
+
+.imgs {
+  overflow: hidden;
+}
+
+.imgs .img_item {
+  width: 23%;
+  height: 0;
+  padding-bottom: 23%;
+  margin-right: 2.66%;
+  margin-bottom: 20rpx;
+  position: relative;
+  float: left;
+}
+
+.imgs .img_item:nth-child(4n) {
+  margin-right: 0;
+}
+
+.imgs .img_item image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

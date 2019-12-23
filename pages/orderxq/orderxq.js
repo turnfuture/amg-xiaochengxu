@@ -117,6 +117,15 @@ Page({
     })
   },
 
+  // 复制文案
+  copy(e) {
+    let order_sn = e.currentTarget.dataset.order_sn;
+    wx.setClipboardData({
+      data: order_sn,
+      success(res) { }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -69,6 +69,11 @@ Page({
       url: '/pages/collEction/collEction',
     })
   },
+  toRaty: function (e) {//跳转到评价
+    wx.navigateTo({
+      url: '/pages/raty/raty',
+    })
+  },
   toMsg: function (e) {//跳转到消息-无
     wx.navigateTo({
       url: '/pages/mineMsg/mineMsg'

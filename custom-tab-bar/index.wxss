@@ -132,6 +132,8 @@
 
 .left .cart .cart-view .total {
   font-size: 30rpx;
+  width: 150rpx;
+  text-align: left;
 }
 
 .left .cart .cart-view .right {

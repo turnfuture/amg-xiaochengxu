@@ -59,6 +59,9 @@
   border-top: 20rpx solid #f5f5f5;
   border-bottom: 20rpx solid #f5f5f5;
 }
+.logistic_title text{
+  float: right;
+}
 .wlInfo .title{
   font-size: 30rpx;
   color: #000;

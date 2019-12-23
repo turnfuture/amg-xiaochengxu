@@ -156,6 +156,10 @@ Page({
       for (let i = 0; i < spec.length; i++) {
         sku[i] = spec[i].spec_values[0].spec_value_name
       }
+      console.log('开始时间:'+new Date(res.data.data.startTime.replace(/-/g, "/")).getTime())
+      wx.showToast({
+        title: new Date(res.data.data.startTime.replace(/-/g, "/")).getTime(),
+      })
       var isStart = new Date().getTime() >= new Date(res.data.data.startTime.replace(/-/g, "/")).getTime()?true:false;
       let proParams = JSON.parse(datas.data.param);
       that.setData({
@@ -466,11 +470,13 @@ Page({
       return false;
     }
     _this.setData({
-      currentTab: type
+      currentTab: type,
+
     })
     if (_this.data.currentTab == 2) { //评价
       _this.setData({
-        pageNumEva: 1
+        pageNumEva: 1,
+        evaluateList: []
       })
       let pjGoodsid = _this.data.noWid
       _this.getEvaluateList()
@@ -702,7 +708,7 @@ Page({
    
     // 对结束时间进行处理渲染到页面
     // endTimeList.forEach(o => {
-    let endTime = new Date(that.data.actEndTime).getTime();
+    let endTime = new Date(that.data.actEndTime.replace(/-/g, "/")).getTime();
     let obj = null;
     let isFinish = that.data.isFinish;
     // 如果活动未结束，对时间进行处理

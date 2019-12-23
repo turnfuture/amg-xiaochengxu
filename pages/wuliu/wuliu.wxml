@@ -12,7 +12,10 @@
 
 <!-- 物流信息 -->
 <view class="wlInfo">
-  <view class="logistic_title">{{messageDO.name}}快递：{{messageDO.expressId}}</view>
+  <view class="logistic_title">
+    {{messageDO.name}}快递：{{messageDO.expressId}}
+    <text bindtap="copy" data-order_sn="{{messageDO.expressId}}">复制物流单号</text>
+  </view>
   <text class="title">物流信息</text>
   <block wx:if='{{expressDetailsList.length>0}}'  wx:for="{{expressDetailsList}}" wx:key="item">
     <view class="logistic_div {{index==0?'cur':''}}">

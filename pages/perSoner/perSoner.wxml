@@ -159,6 +159,13 @@
     </view>
     <icon class='iconfont icon-jiantou'></icon>
   </view>
+  <view class='groupItem' bindtap='toRaty'>
+    <view class='name'>
+      <image src="../../images/raty.png" mode="widthFix" bindload="onImageLoad"></image>
+      <text>我的评价</text>
+    </view>
+    <icon class='iconfont icon-jiantou'></icon>
+  </view>
   <view class='groupItem' bindtap='toMsg'>
     <view class='name'>
       <image src="../../images/xiaoxi.png" mode="widthFix" bindload="onImageLoad"></image>

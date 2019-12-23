@@ -126,6 +126,9 @@ margin-top: 10rpx;
   color: #434343;
     margin-top: 15rpx;
 }
+.orderNum text {
+  float: right;
+}
 .address {
   display: flex;
   align-items: center;

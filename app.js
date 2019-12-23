@@ -8,7 +8,6 @@ App({
   },
   data: {
     //  url: 'http://192.168.1.108:8081',
-    // url:'https://weixin.mrttg.com',
     url: 'https://amg.aitaunkj.com',
     userId: null,
   },

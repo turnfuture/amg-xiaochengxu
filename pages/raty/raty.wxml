@@ -1,0 +1,32 @@
+<!--pages/collEction/collEction.wxml-->
+<block wx:if="{{goodList.length>0}}" wx:for="{{goodList}}" wx:key="{{index}}">
+  <view class="raty-item">
+    <view class="good_div">
+      <image class="img" mode="aspectFill" src="{{item.imgurl}}"></image>
+      <view class="good_right">
+        <view class="name">{{item.name}}</view>
+        <view class="start">
+          <text class="iconfont icon-star-fill {{item.star>0?'sel':''}}"></text>
+          <text class="iconfont icon-star-fill {{item.star>1?'sel':''}}"></text>
+          <text class="iconfont icon-star-fill {{item.star>2?'sel':''}}"></text>
+          <text class="iconfont icon-star-fill {{item.star>3?'sel':''}}"></text>
+          <text class="iconfont icon-star-fill {{item.star>4?'sel':''}}"></text>
+        </view>
+        <view class="good_bottom">
+          <text class="money">{{item.create_at}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="evalute_content">{{item.content}}</view>
+    <view class="imgs">
+      <block wx:for="{{item.imgList}}" wx:key="{{index}}" wx:for-item="img">
+        <view class="img_item" wx:if="{{img}}">
+          <image mode="aspectFill" src="{{img}}"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+</block>
+<view class="empty_div" wx:if="{{goodList.length==0}}">暂无数据</view>
+
+
